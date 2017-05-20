@@ -23,6 +23,8 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     private final String ICE_POST_LESSON_DIR = "/Minecraft Code/ICE/Post Lesson Repo";
     private final String ICE_PRE_LESSON_DIR = "/Minecraft Code/ICE/Pre Lesson Repo";
     private final String STUDENT_TEXTURES_DIR = "/StudentTextures";
+
+    private final String SRC_DIR = File.separator + "Student1"+ File.separator +"src";
     /**
      *
      */
@@ -224,8 +226,12 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
     private void importPostButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-
-        saveCurrentTextures();
+        try {
+            saveCurrentTextures();
+        }catch(FileNotFoundException e){
+            System.out.println("Error cannot find textures");
+            e.printStackTrace();
+        }
 
         if(loaderType == CurriculumType.FIRE){
             File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_POST_LESSON_DIR + File.separator +postLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
@@ -267,7 +273,12 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     private void textureButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        addTexturesToSRC();
+        try {
+            addTexturesToSRC();
+        }
+        catch (FileNotFoundException e){
+            System.out.println("Files not found... ");
+        }
     }
 
     private void switchCurriculumButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -324,7 +335,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
         else if(loaderType == CurriculumType.ICE){
             //pre
-            directories = getDictionaries(new File(minecraftFolder.getAbsolutePath() + this.ICE_POST_LESSON_DIR));
+            directories = getDictionaries(new File(minecraftFolder.getAbsolutePath() + this.ICE_PRE_LESSON_DIR));
             String[] preLessons = new String[directories.length];
             for(int i =0; i< directories.length; i++){
                 preLessons[i] = directories[i].getName();
@@ -345,7 +356,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
     }
 
-    private void addTexturesToSRC(){
+    private void addTexturesToSRC() throws FileNotFoundException{
         Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+"/Student1/src");
         Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT_TEXTURES_DIR);
 
@@ -363,9 +374,9 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
     }
 
-    private void saveCurrentTextures(){
-        Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+"/Student1/src");
-        Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+"/StudentTextures");
+    private void saveCurrentTextures() throws FileNotFoundException{
+        Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+SRC_DIR);
+        Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT_TEXTURES_DIR);
 
         javaxt.io.File[] currentTextures = srcDic.getFiles("*.png", true);
         for(int i=0; i<currentTextures.length; i++){
