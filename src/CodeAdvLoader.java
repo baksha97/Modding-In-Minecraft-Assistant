@@ -9,11 +9,17 @@ import helper.toTextArea;
  *
  * @author abaks089
  *
+ *>if folder layout does not follow protocols implemented, it will not work properly... example -> lesson03 post-repo ----> must fix & standardize
  *
  * KNOWN BUGS:
- * 	>if folder layout does not follow protocols implemented, it will not work properly... example -> lesson03 post-repo
- * 	>does not delete src and then install post lesson repo, only replaces files in repo that are in the src. //not a big deal unless you're down-grading lessons
+ *  (current bugs still allow program to run as intended, these bugs are not critical but can allow one to pursue the advancement in a more intutive way.)
  *
+ * 	>does not delete src and then install post lesson repo, only replaces files in repo that are in the src. //not a big deal unless you're down-grading lessons
+ * 	>> can implement deletion in another version if requested
+ *
+ *  > saves the current textures in src to "StudentTextures" folder, but if it saves the defaults after an import as the student's texture... you must delete them out of this folder
+ *  >> it is programmed to not overwrite files in that directory to avoid deletion of their custom textures, but if they are there, they wont be saved and will be lost...
+ *  >>> // can implement a dialogue picker in a future version...
  *
  */
 public class CodeAdvLoader extends javax.swing.JFrame {
@@ -382,7 +388,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
         javaxt.io.File[] currentTextures = srcDic.getFiles("*.png", true);
         for(int i=0; i<currentTextures.length; i++){
-            currentTextures[i].copyTo(texturesDic, true); //false, not overwriting any textures! --> TRUE, JUST INCASE THE DEFAULTS ARE THERE
+            currentTextures[i].copyTo(texturesDic, false); //false, not overwriting any textures! --> must delete default textures in this folder to make sure that the newer textures are copied over!
         }
     }
 
