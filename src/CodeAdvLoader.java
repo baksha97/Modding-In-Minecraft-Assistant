@@ -24,7 +24,9 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     private final String ICE_PRE_LESSON_DIR = "/Minecraft Code/ICE/Pre Lesson Repo";
     private final String STUDENT_TEXTURES_DIR = "/StudentTextures";
 
-    private final String SRC_DIR = File.separator + "Student1"+ File.separator +"src";
+    private final String STUDENT1_DIR = "/Student 1";
+    //private final String SRC_DIR = STUDENT1_DIC + "/src"; //File.separator + "Student 1"+ File.separator +"src";
+    private final String JAVALESSONS_DIR = STUDENT1_DIR + "/eclipse/JavaLessons";
     /**
      *
      */
@@ -76,7 +78,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
         minecraftSelectLabel.setText("Select \"Minecraft\" folder:");
 
-        minecraftPathField.setText("Select Folder with Repository, Student1, etc.)");
+        minecraftPathField.setText("Select Folder with Repository, Student 1, etc.");
         minecraftPathField.setEditable(false);
         minecraftBrowseButton.setText("Browse");
         minecraftBrowseButton.addActionListener(new java.awt.event.ActionListener() {
@@ -239,14 +241,14 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
             //java lesson import
             Directory inputJL = new Directory(selectedJavaLessonSRC.getAbsolutePath());
-            Directory outputJL = new Directory(minecraftFolder.getAbsolutePath() + "/Student1/eclipse/JavaLessons");
+            Directory outputJL = new Directory(minecraftFolder.getAbsolutePath() + JAVALESSONS_DIR);
             //	delete(new File(outputJL.getPath()));// FINDME -> might delete needed files, need to check
             inputJL.copyTo(outputJL, true);
             System.out.println("Copied FIRE JavaLessons to: " + outputJL.getPath());
 
             //MDK lesson import
             Directory inputMDK = new Directory(selectedMinecraftLessonSRC.getAbsolutePath());
-            Directory outputMDK = new Directory(minecraftFolder.getAbsolutePath() + "/Student1");
+            Directory outputMDK = new Directory(minecraftFolder.getAbsolutePath() + STUDENT1_DIR);
             inputMDK.copyTo(outputMDK, true);
             System.out.println("Copied FIRE MDK/src to: " + outputMDK.getPath());
         }
@@ -256,14 +258,14 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
             //java lesson import
             Directory inputJL = new Directory(selectedJavaLessonSRC.getAbsolutePath());
-            Directory outputJL = new Directory(minecraftFolder.getAbsolutePath() + "/Student1/eclipse/JavaLessons");
+            Directory outputJL = new Directory(minecraftFolder.getAbsolutePath() + JAVALESSONS_DIR);
             //	delete(new File(outputJL.getPath()));// FINDME -> might delete needed files, need to check
             inputJL.copyTo(outputJL, true);
             System.out.println("Copied ICE JavaLessons to: " + outputJL.getPath());
 
             //MDK lesson import
             Directory inputMDK = new Directory(selectedMinecraftLessonSRC.getAbsolutePath());
-            Directory outputMDK = new Directory(minecraftFolder.getAbsolutePath() + "/Student1");
+            Directory outputMDK = new Directory(minecraftFolder.getAbsolutePath() + STUDENT1_DIR);
             inputMDK.copyTo(outputMDK, true);
             System.out.println("Copied ICE MDK/src to: " + outputMDK.getPath());
         }
@@ -317,7 +319,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
         if(loaderType == CurriculumType.FIRE){
             //pre
-            directories = getDictionaries(new File(minecraftFolder.getAbsolutePath() + this.FIRE_PRE_LESSON_DIR)); //new File(minecraftFolder.getAbsolutePath() + this.FIRE_PRE_LESSON_DIR).listFiles(File::isDirectory);
+            directories = getDirectories(new File(minecraftFolder.getAbsolutePath() + this.FIRE_PRE_LESSON_DIR)); //new File(minecraftFolder.getAbsolutePath() + this.FIRE_PRE_LESSON_DIR).listFiles(File::isDirectory);
             String[] preLessons = new String[directories.length];
             for(int i =0; i< directories.length; i++){
                 preLessons[i] = directories[i].getName();
@@ -325,7 +327,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             preLessonComboBox.setModel(new javax.swing.DefaultComboBoxModel(preLessons));
             System.out.println("FIRE Pre Lessons Loaded: " + preLessons.length);
             //post
-            directories = getDictionaries(new File(minecraftFolder.getAbsolutePath() + this.FIRE_POST_LESSON_DIR));
+            directories = getDirectories(new File(minecraftFolder.getAbsolutePath() + this.FIRE_POST_LESSON_DIR));
             String[] postLessons = new String[directories.length];
             for(int i =0; i< directories.length; i++){
                 postLessons[i] = directories[i].getName();
@@ -335,7 +337,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
         else if(loaderType == CurriculumType.ICE){
             //pre
-            directories = getDictionaries(new File(minecraftFolder.getAbsolutePath() + this.ICE_PRE_LESSON_DIR));
+            directories = getDirectories(new File(minecraftFolder.getAbsolutePath() + this.ICE_PRE_LESSON_DIR));
             String[] preLessons = new String[directories.length];
             for(int i =0; i< directories.length; i++){
                 preLessons[i] = directories[i].getName();
@@ -343,7 +345,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             preLessonComboBox.setModel(new javax.swing.DefaultComboBoxModel(preLessons));
             System.out.println("ICE Pre Lessons Loaded: " + preLessons.length);
             //post
-            directories = getDictionaries(new File(minecraftFolder.getAbsolutePath() + this.ICE_POST_LESSON_DIR));
+            directories = getDirectories(new File(minecraftFolder.getAbsolutePath() + this.ICE_POST_LESSON_DIR));
             String[] postLessons = new String[directories.length];
             for(int i =0; i< directories.length; i++){
                 postLessons[i] = directories[i].getName();
@@ -357,7 +359,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     private void addTexturesToSRC() throws FileNotFoundException{
-        Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+"/Student1/src");
+        Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT1_DIR);
         Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT_TEXTURES_DIR);
 
         javaxt.io.File[] lessonImages = srcDic.getFiles("*.png", true);
@@ -375,18 +377,18 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     private void saveCurrentTextures() throws FileNotFoundException{
-        Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+SRC_DIR);
+        Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT1_DIR);
         Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT_TEXTURES_DIR);
 
         javaxt.io.File[] currentTextures = srcDic.getFiles("*.png", true);
         for(int i=0; i<currentTextures.length; i++){
-            currentTextures[i].copyTo(texturesDic, false); //false, not overwriting any textures!
+            currentTextures[i].copyTo(texturesDic, true); //false, not overwriting any textures! --> TRUE, JUST INCASE THE DEFAULTS ARE THERE
         }
     }
 
     //extensive functions
 
-    private File[] getDictionaries(File dir){
+    private File[] getDirectories(File dir){
         File[] directories = dir.listFiles(new FileFilter() {
             @Override
             public boolean accept(File pathname) {
