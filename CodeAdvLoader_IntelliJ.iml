@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="test" level="project" />
+    <orderEntry type="library" name="test1" level="project" />
+    <orderEntry type="library" name="CodeAdvLoader_IntelliJ" level="project" />
   </component>
 </module>
