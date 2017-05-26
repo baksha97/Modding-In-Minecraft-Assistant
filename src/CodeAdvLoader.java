@@ -1,9 +1,10 @@
 import java.io.*;
+import java.util.concurrent.Executors;
 
+import helper.*;
+import helper.CurriculumType;
 import javaxt.io.Directory;
 import javax.swing.JFileChooser;
-
-import helper.toTextArea;
 
 /**
  *
@@ -42,7 +43,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
      */
 
     public CodeAdvLoader() {
-        super("Modding in Minecraft Loader v1.0");
+        super("Modding in Minecraft Loader v1.2");
         initComponents();
         // keeps reference of standard output stream
         PrintStream printStream = new PrintStream(new toTextArea(outputTextArea));
@@ -55,9 +56,9 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     //  @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Init Code">
     private void initComponents() {
-        loaderType = CurriculumType.FIRE;
+        loaderType = helper.CurriculumType.FIRE;
         headerLabel = new javax.swing.JLabel();
         minecraftSelectLabel = new javax.swing.JLabel();
         minecraftPathField = new javax.swing.JTextField();
@@ -73,6 +74,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         textureButton = new javax.swing.JButton();
         loaderMenuBar = new javax.swing.JMenuBar();
         switchCurriculumButton = new javax.swing.JButton();
+        gradleInstallationButton = new javax.swing.JButton();
         jMenu2 = new javax.swing.JMenu();
         fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -135,7 +137,15 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             }
         });
 
+        gradleInstallationButton.setText("Run Gradle Installation");
+        gradleInstallationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradleInstallationButtonActionPerformed(evt);
+            }
+        });
+
         loaderMenuBar.add(switchCurriculumButton);
+        loaderMenuBar.add(gradleInstallationButton);
 
         jMenu2.setText("Edit");
         //  loaderMenuBar.add(jMenu2);
@@ -298,8 +308,6 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     private void switchCurriculumButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-
         CurriculumType originalMode = loaderType;
 
         if(loaderType == CurriculumType.FIRE){
@@ -316,6 +324,10 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             loaderType = originalMode;
         }
         showLoaderType();
+    }
+
+    private void gradleInstallationButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        runGradleSetup(new File(this.minecraftFolder.getAbsoluteFile() + File.separator + STUDENT1_DIR));
     }
 
     // convience methods:
@@ -409,6 +421,91 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         return directories;
     }
 
+    private static void runGradleSetup(File s1Folder){
+        String operatingSystem = System.getProperty("os.name");
+        StreamGobbler streamGobbler;
+        int exitCode;
+        int i;
+
+        if(operatingSystem.contains("Windows")) {
+            System.out.println("Operating System: " + operatingSystem);
+
+            try {
+                ProcessBuilder builder = new ProcessBuilder();
+
+                System.out.println("Beginning Windows Workspace Setup...");
+                builder.command("cmd.exe", "/c", "gradlew setupDecompWorkspace");
+                builder.directory(s1Folder);
+                Process process = builder.start();
+
+                streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
+                Executors.newSingleThreadExecutor().submit(streamGobbler);
+                exitCode = process.waitFor();
+                assert exitCode == 0;
+
+                i = process.waitFor();
+                System.out.println("Workspace Installation COMPLETE");
+
+                System.out.println("Beginning Windows Eclipse Setup...");
+                builder.command("cmd.exe", "/c", "gradlew eclipse");
+                builder.directory(s1Folder);
+                process = builder.start();
+
+                streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
+                Executors.newSingleThreadExecutor().submit(streamGobbler);
+                exitCode = process.waitFor();
+                assert exitCode == 0;
+
+                i = process.waitFor();
+                System.out.println("Eclipse Workspace Installation COMPLETE");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(operatingSystem.contains("Mac")){
+            System.out.println("Operating System: " + operatingSystem);
+            try {
+                ProcessBuilder builder = new ProcessBuilder();
+
+                System.out.println("Beginning Mac Workspace Setup...");
+                builder.command("sh", "-c", "./gradlew setupDecompWorkspace");
+                builder.directory(s1Folder);
+                Process process = builder.start();
+
+                streamGobbler =
+                        new StreamGobbler(process.getInputStream(), System.out::println);
+                Executors.newSingleThreadExecutor().submit(streamGobbler);
+                exitCode = process.waitFor();
+                assert exitCode == 0;
+
+                i = process.waitFor();
+                System.out.println("Workspace Installation COMPLETE");
+
+                System.out.println("Beginning Mac Eclipse Setup...");
+                builder.command("sh", "-c", "./gradlew eclipse");
+                builder.directory(s1Folder);
+                process = builder.start();
+
+                streamGobbler =
+                        new StreamGobbler(process.getInputStream(), System.out::println);
+                Executors.newSingleThreadExecutor().submit(streamGobbler);
+                exitCode = process.waitFor();
+                assert exitCode == 0;
+
+                i = process.waitFor();
+                System.out.println("Eclipse Workspace Installation COMPLETE");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     /**
      * @param args the command line arguments
@@ -457,6 +554,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     private javax.swing.JButton importPostButton;
     private javax.swing.JButton importPreButton;
     private javax.swing.JButton switchCurriculumButton;
+    private javax.swing.JButton gradleInstallationButton;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuBar loaderMenuBar;
