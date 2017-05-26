@@ -411,8 +411,8 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
     private static void runGradleSetup(File minecraftFolder){
         String operatingSystem = System.getProperty("os.name");
-        System.out.println("Operating System: " + operatingSystem);
         if(operatingSystem.contains("Windows")) {
+            System.out.println("Operating System: " + operatingSystem);
             Runtime rt = Runtime.getRuntime();
             try{
                 System.out.println("STARTING SETUP... -close windows after completion");
@@ -427,6 +427,31 @@ public class CodeAdvLoader extends javax.swing.JFrame {
                 System.out.println("Error: Interrupted Exception");
             }catch(IOException e){
                 System.out.println("Error: IOException Exception");
+            }
+        }
+        else if(operatingSystem.contains("Mac")){
+            System.out.println("Operating System: " + operatingSystem);
+            try {
+            ProcessBuilder builder = new ProcessBuilder();
+
+            System.out.println("Beginning Mac Workspace Setup...");
+            builder.command("sh", "-c", "./gradlew setupDecompWorkspace");
+            builder.directory(minecraftFolder);
+            Process process = builder.start();
+            int i = process.waitFor();
+            System.out.println("Workspace Installation complete");
+
+            System.out.println("Beginning Mac Eclipse Setup...");
+            builder.command("sh", "-c", "./gradlew eclipse");
+            builder.directory(minecraftFolder);
+            process = builder.start();
+            i = process.waitFor();
+            System.out.println("Eclipse Workspace Installation complete");
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
