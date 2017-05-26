@@ -44,7 +44,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
      */
 
     public CodeAdvLoader() {
-        super("Modding in Minecraft Loader v1.0");
+        super("Modding in Minecraft Loader v1.2");
         initComponents();
         // keeps reference of standard output stream
         PrintStream printStream = new PrintStream(new toTextArea(outputTextArea));
@@ -57,7 +57,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     //  @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Init Code">
     private void initComponents() {
         loaderType = CurriculumType.FIRE;
         headerLabel = new javax.swing.JLabel();
@@ -75,6 +75,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         textureButton = new javax.swing.JButton();
         loaderMenuBar = new javax.swing.JMenuBar();
         switchCurriculumButton = new javax.swing.JButton();
+        gradleInstallationButton = new javax.swing.JButton();
         jMenu2 = new javax.swing.JMenu();
         fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -137,7 +138,15 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             }
         });
 
+        gradleInstallationButton.setText("Run Gradle Installation");
+        gradleInstallationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gradleInstallationButtonActionPerformed(evt);
+            }
+        });
+
         loaderMenuBar.add(switchCurriculumButton);
+        loaderMenuBar.add(gradleInstallationButton);
 
         jMenu2.setText("Edit");
         //  loaderMenuBar.add(jMenu2);
@@ -300,8 +309,6 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     private void switchCurriculumButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-
         CurriculumType originalMode = loaderType;
 
         if(loaderType == CurriculumType.FIRE){
@@ -318,6 +325,10 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             loaderType = originalMode;
         }
         showLoaderType();
+    }
+
+    private void gradleInstallationButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        runGradleSetup(this.minecraftFolder);
     }
 
     // convience methods:
@@ -520,6 +531,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     private javax.swing.JButton importPostButton;
     private javax.swing.JButton importPreButton;
     private javax.swing.JButton switchCurriculumButton;
+    private javax.swing.JButton gradleInstallationButton;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuBar loaderMenuBar;
