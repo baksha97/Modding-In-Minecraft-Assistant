@@ -278,6 +278,14 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         else{
             System.out.println("Error reading loader type.");
         }
+
+        try {
+            saveCurrentTextures();
+        }catch(FileNotFoundException e){
+            System.out.println("Error cannot find textures");
+            e.printStackTrace();
+        }
+
     }
 
     private void textureButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,9 +327,6 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
     private void reloadComboBoxes(){
         File[] directories;
-
-
-
 
         if(loaderType == CurriculumType.FIRE){
             //pre
