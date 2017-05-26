@@ -409,6 +409,28 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         return directories;
     }
 
+    private static void runGradleSetup(File minecraftFolder){
+        String operatingSystem = System.getProperty("os.name");
+        System.out.println("Operating System: " + operatingSystem);
+        if(operatingSystem.contains("Windows")) {
+            Runtime rt = Runtime.getRuntime();
+            try{
+                System.out.println("STARTING SETUP... -close windows after completion");
+                Process workspaceSetup = rt.exec("cmd.exe /c start /wait gradlew setupDecompWorkspace", null, minecraftFolder);
+                System.out.println("Starting Workspace Setup...");
+                workspaceSetup.waitFor();
+                Process eclipseSetup = rt.exec("cmd.exe /c start /wait gradlew eclipse", null, minecraftFolder);
+                System.out.println("Starting Eclipse Setup...");
+                eclipseSetup.waitFor();
+                System.out.println("... SETUP COMPLETE");
+            }catch(InterruptedException e){
+                System.out.println("Error: Interrupted Exception");
+            }catch(IOException e){
+                System.out.println("Error: IOException Exception");
+            }
+        }
+    }
+
 
     /**
      * @param args the command line arguments
