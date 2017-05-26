@@ -438,6 +438,13 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             builder.command("sh", "-c", "./gradlew setupDecompWorkspace");
             builder.directory(minecraftFolder);
             Process process = builder.start();
+
+                StreamGobbler streamGobbler =
+                        new StreamGobbler(process.getInputStream(), System.out::println);
+                Executors.newSingleThreadExecutor().submit(streamGobbler);
+                int exitCode = process.waitFor();
+                assert exitCode == 0;
+
             int i = process.waitFor();
             System.out.println("Workspace Installation complete");
 
@@ -445,6 +452,13 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             builder.command("sh", "-c", "./gradlew eclipse");
             builder.directory(minecraftFolder);
             process = builder.start();
+
+                streamGobbler =
+                        new StreamGobbler(process.getInputStream(), System.out::println);
+                Executors.newSingleThreadExecutor().submit(streamGobbler);
+                exitCode = process.waitFor();
+                assert exitCode == 0;
+                
             i = process.waitFor();
             System.out.println("Eclipse Workspace Installation complete");
 
