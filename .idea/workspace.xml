@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f25384-f364-4998-ac82-3a36a8e63b86" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/CodeAdvLoader_IntelliJ.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/test1.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/CodeAdvLoader_IntelliJ_jar.xml" afterPath="" />
+    <list default="true" id="46ccc568-5550-4d26-bc70-accdf0728bbc" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/test1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/helper/test1$1.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_screens/Code and Texture Import Screenshot.png" afterPath="$PROJECT_DIR$/app_screens/Code and Texture Import Screenshot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_screens/GUI Screenshot.png" afterPath="$PROJECT_DIR$/app_screens/GUI Screenshot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_screens/Lessons Loaded from Directory Screenshot.png" afterPath="$PROJECT_DIR$/app_screens/Lessons Loaded from Directory Screenshot.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/CodeAdvLoader_IntelliJ_jar/CodeAdvLoader_IntelliJ.jar" afterPath="$PROJECT_DIR$/out/artifacts/CodeAdvLoader_IntelliJ_jar/CodeAdvLoader_IntelliJ.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/CodeAdvLoader_IntelliJ_jar/javaxt-core64.dll" afterPath="$PROJECT_DIR$/out/artifacts/CodeAdvLoader_IntelliJ_jar/javaxt-core64.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader$6.class" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader$6.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader$7.class" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader$7.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader.class" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/helper/test1.class" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/helper/test1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/test.jar" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/test.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test.jar" afterPath="$PROJECT_DIR$/src/test.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/test.xml" afterPath="$PROJECT_DIR$/.idea/libraries/test.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CodeAdv.iml" afterPath="$PROJECT_DIR$/CodeAdv.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CodeAdvLoader_IntelliJ.iml" afterPath="$PROJECT_DIR$/CodeAdvLoader_IntelliJ.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CodeAdvLoader.java" afterPath="$PROJECT_DIR$/src/CodeAdvLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CurriculumType.java" afterPath="$PROJECT_DIR$/src/CurriculumType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helper/test1.java" afterPath="$PROJECT_DIR$/src/helper/test1.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/helper/toTextArea.java" afterPath="$PROJECT_DIR$/src/helper/toTextArea.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,30 +38,36 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CodeAdvLoader.java" pinned="false" current-in-tab="true">
+    <leaf>
+      <file leaf-file-name="CurriculumType.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CurriculumType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeAdvLoader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="225">
-              <caret line="20" column="139" lean-forward="true" selection-start-line="20" selection-start-column="139" selection-end-line="20" selection-end-column="139" />
+            <state relative-caret-position="339">
+              <caret line="431" column="5" lean-forward="true" selection-start-line="411" selection-start-column="4" selection-end-line="431" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test1.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/helper/test1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
-                <element signature="e#4787#4975#0" expanded="true" />
-                <element signature="e#4974#4975#0" expanded="true" />
-                <element signature="e#5286#5475#0" expanded="true" />
-                <element signature="e#5474#5475#0" expanded="true" />
-                <element signature="e#5590#5776#0" expanded="true" />
-                <element signature="e#5775#5776#0" expanded="true" />
-                <element signature="e#23603#23729#0" expanded="true" />
-                <element signature="e#23728#23729#0" expanded="true" />
-                <element signature="e#23882#23909#0" expanded="true" />
-=======
-            <state relative-caret-position="138">
-              <caret line="405" column="40" lean-forward="false" selection-start-line="405" selection-start-column="40" selection-end-line="405" selection-end-column="40" />
-              <folding>
-                <element signature="e#2517#2580#0" expanded="true" />
-                <element signature="e#25232#25259#0" expanded="true" />
->>>>>>> origin/master
+                <element signature="e#445#514#0" expanded="false" />
+                <element signature="e#685#693#0" expanded="true" />
+                <element signature="method#runGradleSetup#0;class#test1#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -59,8 +83,15 @@
       <projects_view />
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/helper/test1.java" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="52" />
+    <option name="x" value="128" />
     <option name="y" value="23" />
     <option name="width" value="1397" />
     <option name="height" value="943" />
@@ -80,8 +111,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -108,6 +139,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeAdvLoader_IntelliJ" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CodeAdvLoader_IntelliJ" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -125,10 +174,30 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CodeAdvLoader">
+  <component name="RunManager" selected="Application.test1">
     <configuration default="false" name="CodeAdvLoader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="CodeAdvLoader" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="CodeAdvLoader_IntelliJ" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="test1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="helper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="helper.test1" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -345,12 +414,14 @@
       <listeners />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.CodeAdvLoader" />
+      <item index="1" class="java.lang.String" itemvalue="Application.test1" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.CodeAdvLoader" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Application.test1" />
+        <item index="1" class="java.lang.String" itemvalue="Application.CodeAdvLoader" />
       </list>
     </recent_temporary>
   </component>
@@ -359,62 +430,50 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f9f25384-f364-4998-ac82-3a36a8e63b86" name="Default" comment="" />
-      <created>1495671059187</created>
+      <changelist id="46ccc568-5550-4d26-bc70-accdf0728bbc" name="Default" comment="" />
+      <created>1495764689220</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1495671059187</updated>
+      <updated>1495764689220</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="23" width="1397" height="943" extended-state="0" />
+    <frame x="128" y="23" width="1397" height="943" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.062992126" sideWeight="0.5065886" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52125984" sideWeight="0.49341142" order="2" side_tool="false" content_ui="tabs" />
->>>>>>> origin/master
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18181819" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10737294" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993135" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -425,213 +484,33 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/CurriculumType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-<<<<<<< HEAD
-            <element signature="e#4787#4975#0" expanded="true" />
-            <element signature="e#4974#4975#0" expanded="true" />
-            <element signature="e#5286#5475#0" expanded="true" />
-            <element signature="e#5474#5475#0" expanded="true" />
-            <element signature="e#5590#5776#0" expanded="true" />
-            <element signature="e#5775#5776#0" expanded="true" />
-            <element signature="e#23603#23729#0" expanded="true" />
-            <element signature="e#23728#23729#0" expanded="true" />
-            <element signature="e#23882#23909#0" expanded="true" />
-=======
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="45">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="339">
+          <caret line="431" column="5" lean-forward="true" selection-start-line="411" selection-start-column="4" selection-end-line="431" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helper/test1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
+            <element signature="e#445#514#0" expanded="false" />
+            <element signature="e#685#693#0" expanded="true" />
+            <element signature="method#runGradleSetup#0;class#test1#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
->>>>>>> origin/master
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="139" lean-forward="true" selection-start-line="20" selection-start-column="139" selection-end-line="20" selection-end-column="139" />
-          <folding>
-<<<<<<< HEAD
-            <element signature="e#4787#4975#0" expanded="true" />
-            <element signature="e#4974#4975#0" expanded="true" />
-            <element signature="e#5286#5475#0" expanded="true" />
-            <element signature="e#5474#5475#0" expanded="true" />
-            <element signature="e#5590#5776#0" expanded="true" />
-            <element signature="e#5775#5776#0" expanded="true" />
-            <element signature="e#23603#23729#0" expanded="true" />
-            <element signature="e#23728#23729#0" expanded="true" />
-            <element signature="e#23882#23909#0" expanded="true" />
-=======
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
->>>>>>> origin/master
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-=======
-    <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/io/FileOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2737">
-          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/io/FileOutputStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2329">
-          <caret line="161" column="0" lean-forward="false" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="405" column="40" lean-forward="false" selection-start-line="405" selection-start-column="40" selection-end-line="405" selection-end-column="40" />
-          <folding>
-            <element signature="e#2517#2580#0" expanded="true" />
-            <element signature="e#25232#25259#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>CodeAdvLoader_IntelliJ:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>CodeAdvLoader_IntelliJ</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>test</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
->>>>>>> origin/master
   </component>
 </project>
