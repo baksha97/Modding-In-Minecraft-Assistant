@@ -7,6 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6343c1b2-1ac0-4ec5-8aad-d5219cc87229" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/CodeAdvLoader_IntelliJ_jar/CodeAdvLoader_IntelliJ.jar" afterPath="$PROJECT_DIR$/out/artifacts/CodeAdvLoader_IntelliJ_jar/CodeAdvLoader_IntelliJ.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader.class" afterPath="$PROJECT_DIR$/out/production/CodeAdvLoader_IntelliJ/CodeAdvLoader.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -422,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500269348097</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="FIXED PRE LESSON IMPORT ERROR">
+      <created>1500269364508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1500269364508</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
