@@ -247,8 +247,8 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
 //
         if(loaderType == CurriculumType.FIRE){
-            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +postLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
-            File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +postLessonComboBox.getModel().getSelectedItem() + File.separator +"Minecraft");
+            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +preLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
+            File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +preLessonComboBox.getModel().getSelectedItem() + File.separator +"Minecraft");
 
             //java lesson import
             Directory inputJL = new Directory(selectedJavaLessonSRC.getAbsolutePath());
@@ -264,8 +264,8 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             System.out.println("Copied FIRE PRE-REPO MDK/src to: " + outputMDK.getPath());
         }
         else if(loaderType == CurriculumType.ICE){
-            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.ICE_PRE_LESSON_DIR + File.separator  +postLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
-            File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.ICE_PRE_LESSON_DIR + File.separator  +postLessonComboBox.getModel().getSelectedItem() + File.separator  +"Minecraft");
+            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.ICE_PRE_LESSON_DIR + File.separator  +preLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
+            File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.ICE_PRE_LESSON_DIR + File.separator  +preLessonComboBox.getModel().getSelectedItem() + File.separator  +"Minecraft");
 
             //java lesson import
             Directory inputJL = new Directory(selectedJavaLessonSRC.getAbsolutePath());
