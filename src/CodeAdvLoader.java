@@ -43,7 +43,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
      */
 
     public CodeAdvLoader() {
-        super("Modding in Minecraft Loader v1.2");
+        super("Modding in Minecraft Loader v1.7.17");
         initComponents();
         // keeps reference of standard output stream
         PrintStream printStream = new PrintStream(new toTextArea(outputTextArea));
@@ -238,8 +238,58 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     }
 
     private void importPreButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        System.out.println("Pre Lessons are not static and require logic. May implement at a later time. ");
-        System.out.println("          Students should learn how to import code manually.");
+        // TODO add your handling code here:
+        try {
+            saveCurrentTextures();
+        }catch(FileNotFoundException e){
+            System.out.println("Error cannot find textures");
+            e.printStackTrace();
+        }
+
+        if(loaderType == CurriculumType.FIRE){
+            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +postLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
+            File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +postLessonComboBox.getModel().getSelectedItem() + File.separator +"Minecraft");
+
+            //java lesson import
+            Directory inputJL = new Directory(selectedJavaLessonSRC.getAbsolutePath());
+            Directory outputJL = new Directory(minecraftFolder.getAbsolutePath() + JAVALESSONS_DIR);
+            //	delete(new File(outputJL.getPath()));// FINDME -> might delete needed files, need to check
+            inputJL.copyTo(outputJL, true);
+            System.out.println("Copied FIRE PRE-REPO JavaLessons to: " + outputJL.getPath());
+
+            //MDK lesson import
+            Directory inputMDK = new Directory(selectedMinecraftLessonSRC.getAbsolutePath());
+            Directory outputMDK = new Directory(minecraftFolder.getAbsolutePath() + STUDENT1_DIR);
+            inputMDK.copyTo(outputMDK, true);
+            System.out.println("Copied FIRE PRE-REPO MDK/src to: " + outputMDK.getPath());
+        }
+        else if(loaderType == CurriculumType.ICE){
+            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.ICE_PRE_LESSON_DIR + File.separator  +postLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
+            File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.ICE_PRE_LESSON_DIR + File.separator  +postLessonComboBox.getModel().getSelectedItem() + File.separator  +"Minecraft");
+
+            //java lesson import
+            Directory inputJL = new Directory(selectedJavaLessonSRC.getAbsolutePath());
+            Directory outputJL = new Directory(minecraftFolder.getAbsolutePath() + JAVALESSONS_DIR);
+            //	delete(new File(outputJL.getPath()));// FINDME -> might delete needed files, need to check
+            inputJL.copyTo(outputJL, true);
+            System.out.println("Copied ICE PRE-REPO JavaLessons to: " + outputJL.getPath());
+
+            //MDK lesson import
+            Directory inputMDK = new Directory(selectedMinecraftLessonSRC.getAbsolutePath());
+            Directory outputMDK = new Directory(minecraftFolder.getAbsolutePath() + STUDENT1_DIR);
+            inputMDK.copyTo(outputMDK, true);
+            System.out.println("Copied ICE PRE-REPO MDK/src to: " + outputMDK.getPath());
+        }
+        else{
+            System.out.println("Error reading loader type.");
+        }
+
+        try {
+            saveCurrentTextures();
+        }catch(FileNotFoundException e){
+            System.out.println("Error cannot find textures");
+            e.printStackTrace();
+        }
     }
 
     private void importPostButtonActionPerformed(java.awt.event.ActionEvent evt) {
