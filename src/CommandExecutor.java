@@ -4,19 +4,21 @@ import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.Executors;
 
-public class CommandInterface {
+public class CommandExecutor {
 
-    public static void openEclipse(String projectPath) throws IOException, InterruptedException {
+    public static void openEclipse(String projectPath, String eclipsePath) throws IOException, InterruptedException {
+        int completed;
         String operatingSystem = System.getProperty("os.name");
         System.out.println(operatingSystem + "Opening eclipse...");
 
         if (operatingSystem.contains("Windows")) {
-            execute(".", "eclipse -data " + projectPath); //TODO: CHECK
+            completed = execute(eclipsePath, "eclipse -data " + projectPath); //TODO: CHECK
+            assert completed == 0;
         } else if (operatingSystem.contains("Mac")) {
-            execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);
+            completed = execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);
+            assert completed == 0;
         }
     }
-
 
     public static void gradleSetup(String studentFolderPath) throws IOException, InterruptedException{
         int completed;

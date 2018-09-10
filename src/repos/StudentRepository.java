@@ -17,7 +17,7 @@ public class StudentRepository {
         this.studentTexturePath = studentFolderPath + "/Textures";
     }
 
-    public void importWithPaths(String javaPathUpdate, String minecraftPathUpdate){
+    public void importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {
         //start with saving textures
         saveTexturesFromSrc();
 
@@ -30,7 +30,7 @@ public class StudentRepository {
 
         //MDK lesson import
         Directory inputMDK = new Directory(minecraftPathUpdate);
-            //TODO: See if I should leave it as is, and change the repo dir to contain the src FILES instead of the src FOLDER...
+        //TODO: See if I should leave it as is, and change the repo dir to contain the src FILES instead of the src FOLDER...
         Directory outputMDK = new Directory(minecraftSrcPath);
         outputMDK.delete(); //TODO: see if it still works like this, if not delete
         inputMDK.copyTo(outputMDK, true);
@@ -47,7 +47,7 @@ public class StudentRepository {
         Directory texturesDic = new Directory(studentTexturePath);
 
         javaxt.io.File[] currentTextures = srcDic.getFiles("*.png", true);
-        for(int i=0; i<currentTextures.length; i++){
+        for (int i = 0; i < currentTextures.length; i++) {
             currentTextures[i].copyTo(texturesDic, false); //false, not overwriting any textures! --> must delete default textures in this folder to make sure that the newer textures are copied over!
         }
     }
@@ -63,9 +63,9 @@ public class StudentRepository {
         javaxt.io.File[] studentTextures = texturesDic.getFiles("*.png", true);
         //Replace lesson textures with student textures.
         //Can create a Dictionary to hash each file and make operation more efficient at a later time.
-        for(int x=0; x<studentTextures.length; x++){
-            for(int y=0; y<lessonTextures.length; y++){
-                if(studentTextures[x].getName().equals(lessonTextures[y].getName())){
+        for (int x = 0; x < studentTextures.length; x++) {
+            for (int y = 0; y < lessonTextures.length; y++) {
+                if (studentTextures[x].getName().equals(lessonTextures[y].getName())) {
                     studentTextures[x].copyTo(lessonTextures[y], true);
                     System.out.println();
                     System.out.println("Texture: " + studentTextures[x]);
@@ -75,5 +75,8 @@ public class StudentRepository {
         }
     }
 
+    public String getStudentFolderPath() {
+        return studentFolderPath;
+    }
 
 }

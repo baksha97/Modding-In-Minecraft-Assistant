@@ -1,32 +1,27 @@
 import enums.CurriculumType;
 import enums.ImportType;
-import helper.StreamGobbler;
 import javaxt.io.Directory;
 import repos.PresetRepository;
 import repos.StudentRepository;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.Executors;
 
 
 public class MinecraftModdingEnvironment {
 
-    private String environmentPath;
+    private static final String environmentPath = System.getProperty("user.home") + "/Desktop/Minecraft";
+    private static String eclipsePath = environmentPath + "/eclipse";;
 
     private StudentRepository studentRepository;
 
     public static Directory[] getAvailableStudentsDirs(){
-        String path = System.getProperty("user.home") + "/Desktop/Minecraft/Students";
+        String path = environmentPath + "/Students";
         Directory studentsDirectory = new Directory(path);
-
         Directory[] studentDirs = studentsDirectory.getSubDirectories();
-
         return studentDirs;
     }
 
     public MinecraftModdingEnvironment(Directory studentDir) {
-        this.environmentPath = System.getProperty("user.home") + "/Desktop/Minecraft";
         this.studentRepository = new StudentRepository(studentDir.getPath());
     }
 
@@ -42,11 +37,11 @@ public class MinecraftModdingEnvironment {
     }
 
     public void gradleSetup() throws IOException, InterruptedException {
-        CommandInterface.gradleSetup(studentRepository.getStudentFolderPath());
+        CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
     }
 
     public void openEclipse() throws IOException, InterruptedException {
-        CommandInterface.openEclipse(studentRepository.getStudentFolderPath());
+        CommandExecutor.openEclipse(studentRepository.getStudentFolderPath(), this.eclipsePath);
     }
 
 }
@@ -54,7 +49,7 @@ public class MinecraftModdingEnvironment {
 
 /**    FOLDER LAYOUT IS NOT DYNAMIC; MUST CONFORM;
  *
- * MinecraftModdingEnvironment
+ * [/Desktop/Minecraft]
         ├── Minecraft Code
         │   └── /FIRE
         │   │   └── /Pre Lesson Repo
@@ -71,12 +66,12 @@ public class MinecraftModdingEnvironment {
         │       └── /Post Lesson Repo
         │           ...
         ├── Students
-        │   └── Travie
+        │   └── /Travie
         │       └── /src
         │       └── /textures {the student's custom textures}
         │       └── /eclipse
         │           └── /JavaLessons
-        ├── ?
-        │   └── /?
+        ├── eclipse
+        │   └── /eclipse.exe
         └── README.md
 **/
