@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.concurrent.Executors;
 
 import helper.*;
-import helper.CurriculumType;
+import enums.CurriculumType;
 import javaxt.io.Directory;
 import javax.swing.JFileChooser;
 
@@ -13,7 +13,8 @@ import javax.swing.JFileChooser;
  *>if folder layout does not follow protocols implemented, it will not work properly... example -> lesson03 post-repo ----> must fix & standardize
  *
  * KNOWN BUGS:
- *  (current bugs still allow program to run as intended, these bugs are not critical but can allow one to pursue the advancement in a more intutive way.)
+ *  (current bugs still allow program to run as intended,
+ *  these bugs are not critical but can allow one to pursue the advancement in a more intutive way.)
  *
  * 	>does not delete src and then install post lesson repo, only replaces files in repo that are in the src. //not a big deal unless you're down-grading lessons
  * 	>> can implement deletion in another version if requested
@@ -42,6 +43,8 @@ public class CodeAdvLoader extends javax.swing.JFrame {
      * Creates new form CodeAdvLoader
      */
 
+    private Model m;
+
     public CodeAdvLoader() {
         super("Modding in Minecraft Loader v1.7.17");
         initComponents();
@@ -58,7 +61,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
     //  @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Init Code">
     private void initComponents() {
-        loaderType = helper.CurriculumType.FIRE;
+        loaderType = CurriculumType.FIRE;
         headerLabel = new javax.swing.JLabel();
         minecraftSelectLabel = new javax.swing.JLabel();
         minecraftPathField = new javax.swing.JTextField();
@@ -82,7 +85,9 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         headerLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        headerLabel.setText("Code Advantage Loader: Modding in Minecraft");
+        m = new Model();
+
+        headerLabel.setText(m.label);
 
         minecraftSelectLabel.setText("Select \"Minecraft\" folder:");
 
@@ -104,11 +109,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         postLessonComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] {"Select Folder"}));
 
         importPreButton.setText("Import Pre");
-        importPreButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                importPreButtonActionPerformed(evt);
-            }
-        });
+        importPreButton.addActionListener(evt -> importPreButtonActionPerformed(evt));
 
         outputTextArea.setEditable(false);
         outputTextArea.setEditable(false);
@@ -239,15 +240,11 @@ public class CodeAdvLoader extends javax.swing.JFrame {
 
     private void importPreButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        try {
-            saveCurrentTextures();
-        }catch(FileNotFoundException e){
-            System.out.println("Error cannot find textures");
-            e.printStackTrace();
-        }
-//
+        saveCurrentTextures();
+        //
         if(loaderType == CurriculumType.FIRE){
-            File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +preLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
+            File selectedJavaLessonSRC =
+                    new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +preLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
             File selectedMinecraftLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_PRE_LESSON_DIR + File.separator +preLessonComboBox.getModel().getSelectedItem() + File.separator +"Minecraft");
 
             //java lesson import
@@ -284,22 +281,12 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             System.out.println("Error reading loader type.");
         }
 
-        try {
-            saveCurrentTextures();
-        }catch(FileNotFoundException e){
-            System.out.println("Error cannot find textures");
-            e.printStackTrace();
-        }
+        saveCurrentTextures();
     }
 
     private void importPostButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        try {
-            saveCurrentTextures();
-        }catch(FileNotFoundException e){
-            System.out.println("Error cannot find textures");
-            e.printStackTrace();
-        }
+        saveCurrentTextures();
 
         if(loaderType == CurriculumType.FIRE){
             File selectedJavaLessonSRC = new File(minecraftFolder.getAbsolutePath().toString() + this.FIRE_POST_LESSON_DIR + File.separator +postLessonComboBox.getModel().getSelectedItem() + File.separator +"JavaLessons");
@@ -339,22 +326,13 @@ public class CodeAdvLoader extends javax.swing.JFrame {
             System.out.println("Error reading loader type.");
         }
 
-        try {
-            saveCurrentTextures();
-        }catch(FileNotFoundException e){
-            System.out.println("Error cannot find textures");
-            e.printStackTrace();
-        }
+        saveCurrentTextures();
 
     }
 
     private void textureButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        try {
-            addTexturesToSRC();
-        }
-        catch (FileNotFoundException e){
-            System.out.println("Files not found... ");
-        }
+       // addTexturesToSRC();
+        m.label = "TESTER";
     }
 
     private void switchCurriculumButtonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -431,7 +409,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
     }
 
-    private void addTexturesToSRC() throws FileNotFoundException{
+    private void addTexturesToSRC() {
         Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT1_DIR);
         Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT_TEXTURES_DIR);
 
@@ -449,7 +427,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         }
     }
 
-    private void saveCurrentTextures() throws FileNotFoundException{
+    private void saveCurrentTextures() {
         Directory srcDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT1_DIR);
         Directory texturesDic = new Directory(minecraftFolder.getAbsolutePath()+STUDENT_TEXTURES_DIR);
 
@@ -590,6 +568,10 @@ public class CodeAdvLoader extends javax.swing.JFrame {
                 new CodeAdvLoader().setVisible(true);
             }
         });
+    }
+
+    class Model{
+        public String label = "default";
     }
 
     // Variables declaration

@@ -19,9 +19,9 @@ public class PresetRepository {
         setSelectedDir(curriculumType, importType, minecraftFolderPath);
     }
 
-    public PathTuple getLessonPaths(String selectedItem){
-        String java = selectedRepoPath + selectedItem + File.separator + "JavaLessons";
-        String minecraft = selectedRepoPath + selectedItem + File.separator + "Minecraft";
+    public PathTuple getLessonPaths(String selectedLessonName){
+        String java = selectedRepoPath + selectedLessonName + File.separator + "JavaLessons";
+        String minecraft = selectedRepoPath + selectedLessonName + File.separator + "Minecraft";
         PathTuple paths = new PathTuple(java, minecraft);
         return paths;
     }
@@ -30,6 +30,17 @@ public class PresetRepository {
         Directory repo = new Directory(selectedRepoPath);
         Directory[] directories = repo.getSubDirectories();
         return  directories;
+    }
+
+    public String[] getLessonFolderNames(){
+        Directory[] directories = getLessonDirectories();
+        String[] names = new String[directories.length];
+
+        for(int i=0; i<directories.length; i++){
+            names[i] = directories[i].getName();
+        }
+
+        return names;
     }
 
     private void setSelectedDir(CurriculumType curriculumType, ImportType importType, String minecraftFolderPath){

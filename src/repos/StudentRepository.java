@@ -19,7 +19,7 @@ public class StudentRepository {
 
     public void importWithPaths(String javaPathUpdate, String minecraftPathUpdate){
         //start with saving textures
-        saveCurrentTextures();
+        saveTexturesFromSrc();
 
         //java lesson import
         Directory inputJL = new Directory(javaPathUpdate);
@@ -37,12 +37,12 @@ public class StudentRepository {
         System.out.println("Copied MDK/src to: " + outputMDK.getPath());
 
         //end with save current textures to have any updated textures in the project ready
-        saveCurrentTextures();
+        saveTexturesFromSrc();
         //finalize with add customized textures, included the newly added default ones to the SRC
-        addTexturesToSRC();
+        addTexturesToSrc();
     }
 
-    private void saveCurrentTextures() {
+    private void saveTexturesFromSrc() {
         Directory srcDic = new Directory(minecraftSrcPath);
         Directory texturesDic = new Directory(studentTexturePath);
 
@@ -52,7 +52,10 @@ public class StudentRepository {
         }
     }
 
-    private void addTexturesToSRC() {
+    private void addTexturesToSrc() {
+        //makes sure that the addition of new textures are the latest
+        saveTexturesFromSrc();
+
         Directory srcDic = new Directory(minecraftSrcPath);
         Directory texturesDic = new Directory(studentTexturePath);
 
