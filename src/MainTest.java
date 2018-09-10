@@ -34,7 +34,7 @@ public class MainTest {
 //            e.printStackTrace();
 //        }
         try {
-            CommandInterface.openEclipse();
+            CommandInterface.openEclipse("/Users/loaner/Documents/Eclipse_Projects/Learn");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

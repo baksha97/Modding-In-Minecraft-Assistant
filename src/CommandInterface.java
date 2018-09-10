@@ -7,14 +7,23 @@ import java.util.concurrent.Executors;
 public class CommandInterface {
 
     public static void openEclipse(String projectPath) throws IOException, InterruptedException {
-        execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);
+        String operatingSystem = System.getProperty("os.name");
+        System.out.println(operatingSystem + "Opening eclipse...");
 
+        if (operatingSystem.contains("Windows")) {
+            execute(".", "eclipse -data " + projectPath); //TODO: CHECK
+        } else if (operatingSystem.contains("Mac")) {
+            execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);
+        }
     }
-    //new File(this.minecraftFolder.getAbsoluteFile() + File.separator + STUDENT1_DIR);
-    public static void gradeSetup(String environmentPath) throws IOException, InterruptedException{
+
+
+    public static void gradleSetup(String studentFolderPath) throws IOException, InterruptedException{
         int completed;
-        completed = execute(environmentPath, "gradlew setupDecompWorkspace");
-        completed = execute(environmentPath, "gradlew eclipse");
+        completed = execute(studentFolderPath, "gradlew setupDecompWorkspace");
+        assert completed == 0;
+        completed = execute(studentFolderPath, "gradlew eclipse");
+        assert completed == 0;
     }
 
     public static int execute(String inPath, String command) throws IOException, InterruptedException {
@@ -27,7 +36,7 @@ public class CommandInterface {
             return executeOnMac(executionFolder, command);
         }
 
-        return -1;
+        return 0;
     }
 
     private static int executeOnWindows(File executionFolder, String command) throws IOException, InterruptedException {
@@ -35,6 +44,10 @@ public class CommandInterface {
         builder.command("cmd.exe", "/c", command);
         builder.directory(executionFolder);
         Process process = builder.start();
+
+        StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
+        Executors.newSingleThreadExecutor().submit(streamGobbler);
+
         //Todo: implement a loading task
         return process.waitFor();
     }
@@ -44,12 +57,15 @@ public class CommandInterface {
         builder.command("sh", "-c", "./" + command);
         builder.directory(executionFolder);
         Process process = builder.start();
+
+        StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
+        Executors.newSingleThreadExecutor().submit(streamGobbler);
+
         //Todo: implement a loading task
         return process.waitFor();
     }
 
 
-    //new File(this.minecraftFolder.getAbsoluteFile() + File.separator + STUDENT1_DIR);
     private void runGradleSetup(File s1Folder) throws IOException, InterruptedException {
         String operatingSystem = System.getProperty("os.name");
         StreamGobbler streamGobbler;
