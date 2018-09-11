@@ -1,4 +1,5 @@
 import javaxt.io.Directory;
+import utils.Utility;
 import utils.enums.CurriculumType;
 import utils.enums.ImportType;
 
@@ -21,7 +22,7 @@ public class ModdingAssistant extends JFrame {
 
     private ModdingAssistant() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(100, 100, 450, 300);
+        setBounds(100, 100, 600, 400);
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
@@ -73,7 +74,7 @@ public class ModdingAssistant extends JFrame {
         btnImport.addActionListener(e -> performImport());
 
         JButton btnOpenEclipse = new JButton("Open Project");
-        btnOpenEclipse.addActionListener(e -> this.environment.openEclipse());
+        btnOpenEclipse.addActionListener(e -> openEclipse());
 
         initializeComboBoxes();
 
@@ -163,7 +164,7 @@ public class ModdingAssistant extends JFrame {
             txtOutput.setText("No student projects found!...");
             btnImport.setEnabled(false);
         }else{
-            txtOutput.setText("Choose your name!");
+            txtOutput.setText("Verify user on the top drop down menu.");
             btnImport.setEnabled(true);
         }
     }
@@ -176,13 +177,24 @@ public class ModdingAssistant extends JFrame {
     }
 
     private void performImport() {
-        println("Importing " + currentCurriculumType() + ": " + currentImportType() + "\n>>>" + currentStudentDirectory());
+        println(currentRepoTitle() + "  Moving...");
         String lesson = (String) cbLessonPlan.getSelectedItem();
-        this.environment.performImport(currentCurriculumType(), currentImportType(), lesson);
+        String result = this.environment.performImport(currentCurriculumType(), currentImportType(), lesson);
+        println(result);
+    }
+
+    private void openEclipse(){
+        println("{?} Opening " + cbStudent.getSelectedItem() + "'s eclipse...");
+        this.environment.openEclipse();
     }
 
     private void println(String s){
         txtOutput.setText(txtOutput.getText() + "\n" + s);
+    }
+
+    private String currentRepoTitle(){
+        return "{ " + Utility.toDisplayCase((String) cbCourse.getSelectedItem())+ ": "
+                + Utility.toDisplayCase((String) cbImportType.getSelectedItem()) + " }";
     }
 
     private Directory currentStudentDirectory() {

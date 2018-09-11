@@ -10,22 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6343c1b2-1ac0-4ec5-8aad-d5219cc87229" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/utils/enums/CurriculumType.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/utils/enums/ImportType.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/utils/Utility.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/src/AssistantLogger.java" afterPath="$PROJECT_DIR$/src/utils/AssistantLogger.java" />
-      <change beforePath="$PROJECT_DIR$/src/CodeAdvLoader.java" afterPath="$PROJECT_DIR$/src/CodeAdvLoader.java" />
-      <change beforePath="$PROJECT_DIR$/src/CommandExecutor.java" afterPath="$PROJECT_DIR$/src/utils/CommandExecutor.java" />
-      <change beforePath="$PROJECT_DIR$/src/EnvironmentViewModel.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/MainTest.java" afterPath="$PROJECT_DIR$/src/MainTest.java" />
       <change beforePath="$PROJECT_DIR$/src/MinecraftModdingEnvironment.java" afterPath="$PROJECT_DIR$/src/MinecraftModdingEnvironment.java" />
       <change beforePath="$PROJECT_DIR$/src/ModdingAssistant.java" afterPath="$PROJECT_DIR$/src/ModdingAssistant.java" />
-      <change beforePath="$PROJECT_DIR$/src/enums/CurriculumType.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/enums/ImportType.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/helper/StreamGobbler.java" afterPath="$PROJECT_DIR$/src/utils/helper/StreamGobbler.java" />
-      <change beforePath="$PROJECT_DIR$/src/helper/toTextArea.java" afterPath="$PROJECT_DIR$/src/utils/helper/toTextArea.java" />
-      <change beforePath="$PROJECT_DIR$/src/repos/PresetRepository.java" afterPath="$PROJECT_DIR$/src/repos/PresetRepository.java" />
       <change beforePath="$PROJECT_DIR$/src/repos/StudentRepository.java" afterPath="$PROJECT_DIR$/src/repos/StudentRepository.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,32 +32,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ModdingAssistant.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ModdingAssistant.java">
+      <file leaf-file-name="MinecraftModdingEnvironment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/MinecraftModdingEnvironment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="162" column="30" lean-forward="false" selection-start-line="162" selection-start-column="30" selection-end-line="162" selection-end-column="30" />
+            <state relative-caret-position="190">
+              <caret line="44" column="15" lean-forward="false" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#ModdingAssistant#0;class#ModdingAssistant#0" expanded="false" />
-                <element signature="method#main#0;class#ModdingAssistant#0" expanded="false" />
-                <element signature="e#9290#9291#0" expanded="true" />
-                <element signature="e#9355#9356#0" expanded="true" />
-                <element signature="method#currentCurriculumType#0;class#ModdingAssistant#0" expanded="false" />
-                <element signature="e#9736#9737#0" expanded="true" />
-                <element signature="e#9818#9819#0" expanded="true" />
+                <element signature="method#MinecraftModdingEnvironment#0;class#MinecraftModdingEnvironment#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentRepository.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StudentRepository.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/repos/StudentRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+            <state relative-caret-position="179">
+              <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModdingAssistant.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ModdingAssistant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="186" column="60" lean-forward="false" selection-start-line="186" selection-start-column="60" selection-end-line="186" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#main#0;class#ModdingAssistant#0" expanded="false" />
+                <element signature="e#9446#9447#0" expanded="true" />
+                <element signature="e#9511#9512#0" expanded="true" />
+                <element signature="method#currentRepoTitle#0;class#ModdingAssistant#0" expanded="false" />
+                <element signature="method#currentStudentDirectory#0;class#ModdingAssistant#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -94,6 +93,7 @@
       <find>saveCurrentTextures</find>
       <find>getDirectories</find>
       <find>getLessonDirectories</find>
+      <find>/eclipse/JavaLessons/</find>
       <find>txtOutput</find>
     </findStrings>
   </component>
@@ -138,10 +138,11 @@
         <option value="$PROJECT_DIR$/src/utils/helper/toTextArea.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/utils/AssistantLogger.java" />
-        <option value="$PROJECT_DIR$/src/MinecraftModdingEnvironment.java" />
         <option value="$PROJECT_DIR$/src/CodeAdvLoader.java" />
-        <option value="$PROJECT_DIR$/src/ModdingAssistant.java" />
+        <option value="$PROJECT_DIR$/src/MinecraftModdingEnvironment.java" />
         <option value="$PROJECT_DIR$/src/repos/StudentRepository.java" />
+        <option value="$PROJECT_DIR$/src/utils/Utility.java" />
+        <option value="$PROJECT_DIR$/src/ModdingAssistant.java" />
       </list>
     </option>
   </component>
@@ -192,13 +193,6 @@
               <item name="Code-Advantage-Loader" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Code-Advantage-Loader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Code-Advantage-Loader" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Code-Advantage-Loader" type="b2602c69:ProjectViewProjectNode" />
@@ -591,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536640223675</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="updates in progress">
+      <created>1536642801263</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1536642801263</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -605,7 +606,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.49701494" order="6" side_tool="false" content_ui="tabs" />
@@ -615,7 +615,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16486903" sideWeight="0.21343283" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16486903" sideWeight="0.78656715" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32357472" sideWeight="0.78656715" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15716487" sideWeight="0.4910448" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -712,13 +712,11 @@
           <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#ModdingAssistant#0;class#ModdingAssistant#0" expanded="false" />
             <element signature="method#main#0;class#ModdingAssistant#0" expanded="false" />
-            <element signature="e#9290#9291#0" expanded="true" />
-            <element signature="e#9355#9356#0" expanded="true" />
-            <element signature="method#currentCurriculumType#0;class#ModdingAssistant#0" expanded="false" />
-            <element signature="e#9736#9737#0" expanded="true" />
-            <element signature="e#9818#9819#0" expanded="true" />
+            <element signature="e#9446#9447#0" expanded="true" />
+            <element signature="e#9511#9512#0" expanded="true" />
+            <element signature="method#currentRepoTitle#0;class#ModdingAssistant#0" expanded="false" />
+            <element signature="method#currentStudentDirectory#0;class#ModdingAssistant#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -980,30 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/CommandExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding>
-            <element signature="method#executeOnWindows#0;class#CommandExecutor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/repos/PresetRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="71" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="71" selection-end-column="29" />
-          <folding>
-            <element signature="method#PresetRepository#0;class#PresetRepository#0" expanded="false" />
-            <element signature="method#getLessonPaths#0;class#PresetRepository#0" expanded="false" />
-            <element signature="method#setSelectedRepoPath#0;class#PresetRepository#0" expanded="false" />
-            <element signature="method#setAsPreLesson#0;class#PresetRepository#0" expanded="false" />
-            <element signature="method#setAsPostLesson#0;class#PresetRepository#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CodeAdvLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -1013,17 +987,6 @@
             <element signature="e#6765#6852#0" expanded="true" />
             <element signature="e#8390#8448#0" expanded="true" />
             <element signature="method#minecraftBrowseButtonActionPerformed#0;class#CodeAdvLoader#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MinecraftModdingEnvironment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-555">
-          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#MinecraftModdingEnvironment#0;class#MinecraftModdingEnvironment#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1039,29 +1002,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ModdingAssistant.java">
+    <entry file="file://$PROJECT_DIR$/src/utils/CommandExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="162" column="30" lean-forward="false" selection-start-line="162" selection-start-column="30" selection-end-line="162" selection-end-column="30" />
+        <state relative-caret-position="129">
+          <caret line="16" column="80" lean-forward="false" selection-start-line="16" selection-start-column="80" selection-end-line="16" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/repos/PresetRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding>
+            <element signature="method#PresetRepository#0;class#PresetRepository#0" expanded="false" />
+            <element signature="method#getLessonPaths#0;class#PresetRepository#0" expanded="false" />
+            <element signature="method#setSelectedRepoPath#0;class#PresetRepository#0" expanded="false" />
+            <element signature="method#setAsPreLesson#0;class#PresetRepository#0" expanded="false" />
+            <element signature="method#setAsPostLesson#0;class#PresetRepository#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MinecraftModdingEnvironment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="44" column="15" lean-forward="false" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#ModdingAssistant#0;class#ModdingAssistant#0" expanded="false" />
-            <element signature="method#main#0;class#ModdingAssistant#0" expanded="false" />
-            <element signature="e#9290#9291#0" expanded="true" />
-            <element signature="e#9355#9356#0" expanded="true" />
-            <element signature="method#currentCurriculumType#0;class#ModdingAssistant#0" expanded="false" />
-            <element signature="e#9736#9737#0" expanded="true" />
-            <element signature="e#9818#9819#0" expanded="true" />
+            <element signature="method#MinecraftModdingEnvironment#0;class#MinecraftModdingEnvironment#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/repos/StudentRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="17" column="55" lean-forward="false" selection-start-line="17" selection-start-column="55" selection-end-line="17" selection-end-column="55" />
+        <state relative-caret-position="179">
+          <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="5" lean-forward="false" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ModdingAssistant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="186" column="60" lean-forward="false" selection-start-line="186" selection-start-column="60" selection-end-line="186" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#ModdingAssistant#0" expanded="false" />
+            <element signature="e#9446#9447#0" expanded="true" />
+            <element signature="e#9511#9512#0" expanded="true" />
+            <element signature="method#currentRepoTitle#0;class#ModdingAssistant#0" expanded="false" />
+            <element signature="method#currentStudentDirectory#0;class#ModdingAssistant#0" expanded="false" />
           </folding>
         </state>
       </provider>

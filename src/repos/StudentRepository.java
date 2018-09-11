@@ -18,7 +18,8 @@ public class StudentRepository {
         this.studentTexturePath = studentFolderPath + "Textures";
     }
 
-    public void importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {
+    public String importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {
+        String importedTo = "";
         //start with saving textures
         saveTexturesFromSrc();
 
@@ -27,7 +28,7 @@ public class StudentRepository {
         Directory outputJL = new Directory(javaLessonPath);
         outputJL.delete(); //TODO: see if it still works like this, if not delete
         inputJL.copyTo(outputJL, true);
-        System.out.println("Copied JavaLessons to: " + outputJL.getPath());
+        importedTo = "[SR]: JavaLessons ->" + outputJL.getPath();
 
         //MDK lesson import
         Directory inputMDK = new Directory(minecraftPathUpdate);
@@ -35,12 +36,14 @@ public class StudentRepository {
         Directory outputMDK = new Directory(minecraftSrcPath);
         outputMDK.delete(); //TODO: see if it still works like this, if not delete
         inputMDK.copyTo(outputMDK, true);
-        System.out.println("Copied MDK/src to: " + outputMDK.getPath());
+        importedTo = importedTo + "\n" + "[SR]: MDK/src -> " + outputMDK.getPath();
 
         //end with save current textures to have any updated textures in the project ready
         saveTexturesFromSrc();
         //finalize with add customized textures, included the newly added default ones to the SRC
         addTexturesToSrc();
+
+        return importedTo;
     }
 
     private void saveTexturesFromSrc() {

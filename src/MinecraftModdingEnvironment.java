@@ -38,29 +38,33 @@ public class MinecraftModdingEnvironment {
         return PresetRepository.get(curriculumType, importType, environmentPath).getLessonFolderNames();
     }
 
-    public void performImport(CurriculumType curriculumType, ImportType importType, String selectedLessonName) {
+    public String performImport(CurriculumType curriculumType, ImportType importType, String selectedLessonName) {
         PresetRepository.PathTuple paths =
                 PresetRepository.get(curriculumType, importType, environmentPath)
                         .getLessonPaths(selectedLessonName);
-        studentRepository.importWithPaths(paths.getJavaLessonPath(), paths.getMinecraftPath());
+        return studentRepository.importWithPaths(paths.getJavaLessonPath(), paths.getMinecraftPath());
     }
 
     public void gradleSetup() {
-        try {
-            CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
-        } catch (IOException | InterruptedException e) {
-            AssistantLogger.saveStackTrace(e);
-            e.printStackTrace();
-        }
+        new Thread(() -> {
+            try {
+                CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
+            } catch (IOException | InterruptedException e) {
+                AssistantLogger.saveStackTrace(e);
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     public void openEclipse() {
-        try {
-            CommandExecutor.openEclipse(studentRepository.getStudentFolderPath(), eclipsePath);
-        } catch (IOException | InterruptedException e) {
-            AssistantLogger.saveStackTrace(e);
-            e.printStackTrace();
-        }
+        new Thread(() -> {
+            try {
+                CommandExecutor.openEclipse(studentRepository.getStudentFolderPath(), eclipsePath);
+            } catch (IOException | InterruptedException e) {
+                AssistantLogger.saveStackTrace(e);
+                e.printStackTrace();
+            }
+        }).start();
     }
 
 }
