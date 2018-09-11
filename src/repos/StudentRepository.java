@@ -1,20 +1,21 @@
 package repos;
 
 import javaxt.io.Directory;
+import javaxt.io.File;
 
 public class StudentRepository {
 
-    private String studentFolderPath;
+    private final String studentFolderPath;
 
-    private String minecraftSrcPath;
-    private String javaLessonPath;
-    private String studentTexturePath;
+    private final String minecraftSrcPath;
+    private final String javaLessonPath;
+    private final String studentTexturePath;
 
     public StudentRepository(String studentFolderPath) {
-        this.studentFolderPath = studentFolderPath;
-        this.minecraftSrcPath = studentFolderPath + "/src";
-        this.javaLessonPath = studentFolderPath + "/eclipse/JavaLessons";
-        this.studentTexturePath = studentFolderPath + "/Textures";
+        this.studentFolderPath = studentFolderPath; // contains a "/" at the end
+        this.minecraftSrcPath = studentFolderPath + "src";
+        this.javaLessonPath = studentFolderPath + "eclipse/JavaLessons";
+        this.studentTexturePath = studentFolderPath + "Textures";
     }
 
     public void importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {
@@ -47,8 +48,8 @@ public class StudentRepository {
         Directory texturesDic = new Directory(studentTexturePath);
 
         javaxt.io.File[] currentTextures = srcDic.getFiles("*.png", true);
-        for (int i = 0; i < currentTextures.length; i++) {
-            currentTextures[i].copyTo(texturesDic, false); //false, not overwriting any textures! --> must delete default textures in this folder to make sure that the newer textures are copied over!
+        for (File currentTexture : currentTextures) {
+            currentTexture.copyTo(texturesDic, false); //false, not overwriting any textures! --> must delete default textures in this folder to make sure that the newer textures are copied over!
         }
     }
 
@@ -62,14 +63,14 @@ public class StudentRepository {
         javaxt.io.File[] lessonTextures = srcDic.getFiles("*.png", true);
         javaxt.io.File[] studentTextures = texturesDic.getFiles("*.png", true);
         //Replace lesson textures with student textures.
-        //Can create a Dictionary to hash each file and make operation more efficient at a later time.
-        for (int x = 0; x < studentTextures.length; x++) {
-            for (int y = 0; y < lessonTextures.length; y++) {
-                if (studentTextures[x].getName().equals(lessonTextures[y].getName())) {
-                    studentTextures[x].copyTo(lessonTextures[y], true);
+        //Can get a Dictionary to hash each file and make operation more efficient at a later time.
+        for (File studentTexture : studentTextures) {
+            for (File lessonTexture : lessonTextures) {
+                if (studentTexture.getName().equals(lessonTexture.getName())) {
+                    studentTexture.copyTo(lessonTexture, true);
                     System.out.println();
-                    System.out.println("Texture: " + studentTextures[x]);
-                    System.out.println(" -> moved to path: " + lessonTextures[y]);
+                    System.out.println("Texture: " + studentTexture);
+                    System.out.println(" -> moved to path: " + lessonTexture);
                 }
             }
         }

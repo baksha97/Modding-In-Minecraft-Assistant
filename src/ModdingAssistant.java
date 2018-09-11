@@ -1,5 +1,4 @@
 import javaxt.io.Directory;
-import utils.CommandExecutor;
 import utils.enums.CurriculumType;
 import utils.enums.ImportType;
 
@@ -11,71 +10,17 @@ import java.awt.*;
 
 public class ModdingAssistant extends JFrame {
 
-    private JPanel contentPane;
     private final JComboBox<String> cbStudent;
-    private final JComboBox<String>  cbCourse;
-    private final JComboBox<String>  cbImportType;
-    private final JComboBox<String>  cbLessonPlan;
+    private final JComboBox<String> cbCourse;
+    private final JComboBox<String> cbImportType;
+    private final JComboBox<String> cbLessonPlan;
+    private final JButton btnImport;
     private final JTextPane txtOutput;
+    private final JPanel contentPane;
+    private MinecraftModdingEnvironment environment;
 
-    private MinecraftModdingEnvironment enviornment;
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
-                }
-                ModdingAssistant frame = new ModdingAssistant();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    /**
-     * Create the frame.
-     */
-
-
-    private void setDefaults() {
-        cbStudent.setModel(new DefaultComboBoxModel<String>(MinecraftModdingEnvironment.getAvailableStudentsNames()));
-        cbCourse.setModel(new DefaultComboBoxModel<>(CurriculumType.getNames()));
-        cbImportType.setModel(new DefaultComboBoxModel<>(ImportType.getNames()));
-        showAvailableLessons();
-    }
-
-    private void showAvailableLessons(){
-        this.enviornment = new MinecraftModdingEnvironment(currentStudentDirectory());
-        cbLessonPlan.setModel(new DefaultComboBoxModel<>(
-                this.enviornment.getAvailableLessons(currentCurriculumType(), currentImportType())
-        ));
-    }
-
-    private void performImport(){
-        String lesson = (String) cbLessonPlan.getSelectedItem();
-        this.enviornment.performImport(currentCurriculumType(), currentImportType(), lesson);
-    }
-
-    private Directory currentStudentDirectory(){
-        int studentIndex = cbStudent.getSelectedIndex();
-        Directory studentDir = MinecraftModdingEnvironment.getAvailableStudentsDirs()[studentIndex];
-        return studentDir;
-    }
-
-    private CurriculumType currentCurriculumType(){
-        return CurriculumType.valueOf((String) cbCourse.getSelectedItem());
-    }
-    private ImportType currentImportType(){
-        return ImportType.valueOf((String) cbImportType.getSelectedItem());
-    }
-
-    public ModdingAssistant() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    private ModdingAssistant() {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
 
         JMenuBar menuBar = new JMenuBar();
@@ -86,9 +31,7 @@ public class ModdingAssistant extends JFrame {
         menuBar.add(menu);
 
         JMenuItem mntmRunGradleSetup = new JMenuItem("Run Gradle Setup");
-        mntmRunGradleSetup.addActionListener(e -> {
-            this.enviornment.gradleSetup();
-        });
+        mntmRunGradleSetup.addActionListener(e -> this.environment.gradleSetup());
         menu.add(mntmRunGradleSetup);
 
         JMenuItem mntmAbout = new JMenuItem("About ");
@@ -100,19 +43,20 @@ public class ModdingAssistant extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
 
-        cbStudent = new JComboBox();
+        cbStudent = new JComboBox<>();
         cbStudent.addItemListener(e -> showAvailableLessons());
 
         txtOutput = new JTextPane();
+        txtOutput.setEditable(false);
 
-        cbCourse = new JComboBox();
+        cbCourse = new JComboBox<>();
         cbCourse.addItemListener(e -> showAvailableLessons());
         cbCourse.setToolTipText("Curriculum");
 
-        cbImportType = new JComboBox();
+        cbImportType = new JComboBox<>();
         cbImportType.addItemListener(e -> showAvailableLessons());
 
-        cbLessonPlan = new JComboBox();
+        cbLessonPlan = new JComboBox<>();
         cbLessonPlan.addItemListener(e -> {
         });
 
@@ -125,15 +69,13 @@ public class ModdingAssistant extends JFrame {
         JLabel lblLesson = new JLabel("Lesson");
         lblLesson.setFont(new Font("Consolas", Font.BOLD, 13));
 
-        JButton btnImport = new JButton("Import");
+        btnImport = new JButton("Import");
         btnImport.addActionListener(e -> performImport());
 
         JButton btnOpenEclipse = new JButton("Open Project");
-        btnOpenEclipse.addActionListener(e -> {
-            this.enviornment.openEclipse();
-        });
+        btnOpenEclipse.addActionListener(e -> this.environment.openEclipse());
 
-        setDefaults();
+        initializeComboBoxes();
 
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         gl_contentPane.setHorizontalGroup(
@@ -188,5 +130,71 @@ public class ModdingAssistant extends JFrame {
                                 .addGap(0))
         );
         contentPane.setLayout(gl_contentPane);
+    }
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                    if ("Nimbus".equals(info.getName())) {
+                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                        break;
+                    }
+                }
+                ModdingAssistant frame = new ModdingAssistant();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+
+    private void initializeComboBoxes() {
+        cbStudent.setModel(new DefaultComboBoxModel<>(MinecraftModdingEnvironment.getAvailableStudentsNames()));
+        cbCourse.setModel(new DefaultComboBoxModel<>(CurriculumType.getNames()));
+        cbImportType.setModel(new DefaultComboBoxModel<>(ImportType.getNames()));
+        showAvailableLessons();
+        initializeCheck();
+    }
+
+    private void initializeCheck(){
+        if(cbStudent.getItemCount() == 0){
+            txtOutput.setText("No student projects found!...");
+            btnImport.setEnabled(false);
+        }else{
+            txtOutput.setText("Choose your name!");
+            btnImport.setEnabled(true);
+        }
+    }
+
+    private void showAvailableLessons() {
+        this.environment = new MinecraftModdingEnvironment(currentStudentDirectory());
+        cbLessonPlan.setModel(new DefaultComboBoxModel<>(
+                this.environment.getAvailableLessons(currentCurriculumType(), currentImportType())
+        ));
+    }
+
+    private void performImport() {
+        println("Importing " + currentCurriculumType() + ": " + currentImportType() + "\n>>>" + currentStudentDirectory());
+        String lesson = (String) cbLessonPlan.getSelectedItem();
+        this.environment.performImport(currentCurriculumType(), currentImportType(), lesson);
+    }
+
+    private void println(String s){
+        txtOutput.setText(txtOutput.getText() + "\n" + s);
+    }
+
+    private Directory currentStudentDirectory() {
+        int studentIndex = cbStudent.getSelectedIndex();
+        return MinecraftModdingEnvironment.getAvailableStudentsDirs()[studentIndex];
+    }
+
+    private CurriculumType currentCurriculumType() {
+        return CurriculumType.valueOf((String) cbCourse.getSelectedItem());
+    }
+
+    private ImportType currentImportType() {
+        return ImportType.valueOf((String) cbImportType.getSelectedItem());
     }
 }
