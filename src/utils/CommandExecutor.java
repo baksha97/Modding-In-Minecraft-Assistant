@@ -1,6 +1,7 @@
 package utils;
 
-import utils.helper.StreamGobbler;
+import utils.output.AssistantLogger;
+import utils.output.StreamGobbler;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,26 +9,40 @@ import java.util.concurrent.Executors;
 
 public class CommandExecutor {
 
-    public static void openEclipse(String projectPath, String eclipsePath) throws IOException, InterruptedException {
-        int completed;
-        String operatingSystem = System.getProperty("os.name");
-        System.out.println(operatingSystem + "Opening eclipse...");
+    public static void openEclipse(String projectPath, String eclipsePath) {
+        new Thread(() -> {
+            try {
+                int completed;
+                String operatingSystem = System.getProperty("os.name");
+                System.out.println(operatingSystem + "Opening eclipse...");
 
-        if (operatingSystem.contains("Windows")) {
-            completed = execute(eclipsePath, "eclipse -data " + projectPath); //TODO: CHECK
-            assert completed == 0;
-        } else if (operatingSystem.contains("Mac")) {
-            completed = execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);
-            assert completed == 0;
-        }
+                if (operatingSystem.contains("Windows")) {
+                    completed = execute(eclipsePath, "eclipse -data " + projectPath); //TODO: CHECK
+                    assert completed == 0;
+                } else if (operatingSystem.contains("Mac")) {
+                    completed = execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);
+                    assert completed == 0;
+                }
+            } catch (IOException | InterruptedException e) {
+                AssistantLogger.saveStackTrace(e);
+                e.printStackTrace();
+            }
+        }).start();
     }
 
-    public static void gradleSetup(String studentFolderPath) throws IOException, InterruptedException {
-        int completed;
-        completed = execute(studentFolderPath, "gradlew setupDecompWorkspace");
-        assert completed == 0;
-        completed = execute(studentFolderPath, "gradlew eclipse");
-        assert completed == 0;
+    public static void gradleSetup(String studentFolderPath) {
+        new Thread(() -> {
+            int completed;
+            try {
+                completed = execute(studentFolderPath, "gradlew setupDecompWorkspace");
+                assert completed == 0;
+                completed = execute(studentFolderPath, "gradlew eclipse");
+                assert completed == 0;
+            } catch (IOException | InterruptedException e) {
+                AssistantLogger.saveStackTrace(e);
+                e.printStackTrace();
+            }
+        }).start();
     }
 
     private static int execute(String inPath, String command) throws IOException, InterruptedException {
@@ -64,8 +79,6 @@ public class CommandExecutor {
 
         StreamGobbler streamGobbler = new StreamGobbler(process.getInputStream(), System.out::println);
         Executors.newSingleThreadExecutor().submit(streamGobbler);
-
-        //Todo: implement a loading task
         return process.waitFor();
     }
 

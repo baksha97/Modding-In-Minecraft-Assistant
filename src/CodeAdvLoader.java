@@ -1,7 +1,7 @@
 import javaxt.io.Directory;
 import utils.enums.CurriculumType;
-import utils.helper.StreamGobbler;
-import utils.helper.toTextArea;
+import utils.output.StreamGobbler;
+import utils.output.TextAreaOutputStream;
 
 import javax.swing.*;
 import java.io.File;
@@ -61,7 +61,7 @@ public class CodeAdvLoader extends javax.swing.JFrame {
         super("Modding in Minecraft Loader v1.7.17");
         initComponents();
         // keeps reference of standard output stream
-        PrintStream printStream = new PrintStream(new toTextArea(outputTextArea));
+        PrintStream printStream = new PrintStream(new TextAreaOutputStream(outputTextArea));
         PrintStream standardOut = System.out;
 
         // re-assigns standard output stream and error output stream

@@ -1,12 +1,9 @@
 import javaxt.io.Directory;
 import repos.PresetRepository;
 import repos.StudentRepository;
-import utils.AssistantLogger;
 import utils.CommandExecutor;
 import utils.enums.CurriculumType;
 import utils.enums.ImportType;
-
-import java.io.IOException;
 
 
 public class MinecraftModdingEnvironment {
@@ -46,25 +43,12 @@ public class MinecraftModdingEnvironment {
     }
 
     public void gradleSetup() {
-        new Thread(() -> {
-            try {
-                CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
-            } catch (IOException | InterruptedException e) {
-                AssistantLogger.saveStackTrace(e);
-                e.printStackTrace();
-            }
-        }).start();
+            CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
     }
 
     public void openEclipse() {
-        new Thread(() -> {
-            try {
-                CommandExecutor.openEclipse(studentRepository.getStudentFolderPath(), eclipsePath);
-            } catch (IOException | InterruptedException e) {
-                AssistantLogger.saveStackTrace(e);
-                e.printStackTrace();
-            }
-        }).start();
+            CommandExecutor.openEclipse(studentRepository.getStudentFolderPath(), eclipsePath);
+
     }
 
 }

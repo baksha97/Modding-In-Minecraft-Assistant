@@ -1,4 +1,4 @@
-package utils.helper;
+package utils.output;
 
 import javax.swing.*;
 import java.io.OutputStream;
@@ -8,10 +8,10 @@ import java.io.OutputStream;
  *
  * @author www.codejava.net
  */
-public class toTextArea extends OutputStream {
+public class TextAreaOutputStream extends OutputStream {
     private final JTextArea textArea;
 
-    public toTextArea(JTextArea textArea) {
+    public TextAreaOutputStream(JTextArea textArea) {
         this.textArea = textArea;
     }
 

@@ -31,13 +31,18 @@ public class ModdingAssistant extends JFrame {
         menu.setFont(new Font("Lucida Grande", Font.BOLD, 14));
         menuBar.add(menu);
 
+
         JMenuItem mntmRunGradleSetup = new JMenuItem("Run Gradle Setup");
-        mntmRunGradleSetup.addActionListener(e -> this.environment.gradleSetup());
+        mntmRunGradleSetup.addActionListener(e -> {
+            this.environment.gradleSetup();
+            Utility.showSystemOut();
+        });
         menu.add(mntmRunGradleSetup);
 
         JMenuItem mntmAbout = new JMenuItem("About ");
         mntmAbout.addActionListener(e -> {
-            //TODO
+            //TODO remove
+
         });
         menu.add(mntmAbout);
         contentPane = new JPanel();
