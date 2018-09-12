@@ -1,5 +1,5 @@
 import javaxt.io.Directory;
-import utils.Utility;
+import utils.AssistantUtil;
 import utils.enums.CurriculumType;
 import utils.enums.ImportType;
 
@@ -20,29 +20,36 @@ public class ModdingAssistant extends JFrame {
     private final JPanel contentPane;
     private MinecraftModdingEnvironment environment;
 
+    public static final String title = "Modding in Minecraft: Assistant";
+
     private ModdingAssistant() {
+        super(title);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(100, 100, 600, 400);
+        setBounds(100, 100, 800, 400);
 
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
-        JMenu menu = new JMenu("Modding in Minecraft: ModdingAssistant");
+        JMenu menu = new JMenu(title);
         menu.setFont(new Font("Lucida Grande", Font.BOLD, 14));
         menuBar.add(menu);
 
+        JMenuItem mntmAddTexturesToSrc = new JMenuItem("Import/Overwrite Textures");
+        mntmAddTexturesToSrc.addActionListener(e -> {
+            this.environment.addTexturesToSrc();
+        });
+        menu.add(mntmAddTexturesToSrc);
 
         JMenuItem mntmRunGradleSetup = new JMenuItem("Run Gradle Setup");
         mntmRunGradleSetup.addActionListener(e -> {
             this.environment.gradleSetup();
-            Utility.showSystemOut();
+            AssistantUtil.showSystemOut();
         });
         menu.add(mntmRunGradleSetup);
 
         JMenuItem mntmAbout = new JMenuItem("About ");
         mntmAbout.addActionListener(e -> {
-            //TODO remove
-
+            AssistantUtil.presentAboutDialog();
         });
         menu.add(mntmAbout);
         contentPane = new JPanel();
@@ -50,17 +57,18 @@ public class ModdingAssistant extends JFrame {
         setContentPane(contentPane);
 
         cbStudent = new JComboBox<>();
-        cbStudent.addItemListener(e -> showAvailableLessons());
+        cbStudent.addItemListener(e -> onEnvironmentChange());
 
         txtOutput = new JTextPane();
         txtOutput.setEditable(false);
 
+        JScrollPane scrollPane = new JScrollPane(txtOutput);
+
         cbCourse = new JComboBox<>();
-        cbCourse.addItemListener(e -> showAvailableLessons());
-        cbCourse.setToolTipText("Curriculum");
+        cbCourse.addItemListener(e -> onEnvironmentChange());
 
         cbImportType = new JComboBox<>();
-        cbImportType.addItemListener(e -> showAvailableLessons());
+        cbImportType.addItemListener(e -> onEnvironmentChange());
 
         cbLessonPlan = new JComboBox<>();
         cbLessonPlan.addItemListener(e -> {
@@ -90,7 +98,7 @@ public class ModdingAssistant extends JFrame {
                                 .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
                                         .addGroup(gl_contentPane.createSequentialGroup()
                                                 .addGap(1)
-                                                .addComponent(txtOutput, GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE))
+                                                .addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE))
                                         .addGroup(gl_contentPane.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -132,7 +140,7 @@ public class ModdingAssistant extends JFrame {
                                         .addComponent(cbLessonPlan, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btnImport))
                                 .addPreferredGap(ComponentPlacement.RELATED)
-                                .addComponent(txtOutput, GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                                .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 237, Short.MAX_VALUE)
                                 .addGap(0))
         );
         contentPane.setLayout(gl_contentPane);
@@ -160,7 +168,7 @@ public class ModdingAssistant extends JFrame {
         cbStudent.setModel(new DefaultComboBoxModel<>(MinecraftModdingEnvironment.getAvailableStudentsNames()));
         cbCourse.setModel(new DefaultComboBoxModel<>(CurriculumType.getNames()));
         cbImportType.setModel(new DefaultComboBoxModel<>(ImportType.getNames()));
-        showAvailableLessons();
+        onEnvironmentChange();
         initializeCheck();
     }
 
@@ -174,7 +182,8 @@ public class ModdingAssistant extends JFrame {
         }
     }
 
-    private void showAvailableLessons() {
+    private void onEnvironmentChange() {
+        //Check for changes to student folders
         this.environment = new MinecraftModdingEnvironment(currentStudentDirectory());
         cbLessonPlan.setModel(new DefaultComboBoxModel<>(
                 this.environment.getAvailableLessons(currentCurriculumType(), currentImportType())
@@ -182,14 +191,14 @@ public class ModdingAssistant extends JFrame {
     }
 
     private void performImport() {
-        println(currentRepoTitle() + "  Moving...");
         String lesson = (String) cbLessonPlan.getSelectedItem();
+        println(currentRepoTitle());
         String result = this.environment.performImport(currentCurriculumType(), currentImportType(), lesson);
         println(result);
     }
 
     private void openEclipse(){
-        println("{?} Opening " + cbStudent.getSelectedItem() + "'s eclipse...");
+        println("Opening " + cbStudent.getSelectedItem() + "'s eclipse...");
         this.environment.openEclipse();
     }
 
@@ -198,8 +207,8 @@ public class ModdingAssistant extends JFrame {
     }
 
     private String currentRepoTitle(){
-        return "{ " + Utility.toDisplayCase((String) cbCourse.getSelectedItem())+ ": "
-                + Utility.toDisplayCase((String) cbImportType.getSelectedItem()) + " }";
+        String lesson = (String) cbLessonPlan.getSelectedItem();
+        return "[" + AssistantUtil.toTitleCase((String) cbImportType.getSelectedItem()) + " Repository - " + lesson +"]";
     }
 
     private Directory currentStudentDirectory() {
