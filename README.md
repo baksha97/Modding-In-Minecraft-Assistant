@@ -87,11 +87,11 @@ o	This may even be useful for the "slow" classes that may be able to do the same
 
 // * ├── eclipse {only required for Windows to allow opening of their project}
 
-// * │   └── /eclipse.exe
-
+// * │   └── /eclipse.exe 
 // * └── README.md
 
 # Screens
 GUI:
 ![](https://github.com/baksha97/Modding-In-Minecraft-Assistant/blob/master/assistant_screens/interface.png)
 ![](https://github.com/baksha97/Modding-In-Minecraft-Assistant/blob/master/assistant_screens/menu.png)
+![](https://github.com/baksha97/Modding-In-Minecraft-Assistant/blob/master/assistant_screens/layout.png)
