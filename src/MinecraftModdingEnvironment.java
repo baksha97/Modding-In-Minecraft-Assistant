@@ -6,7 +6,7 @@ import utils.enums.CurriculumType;
 import utils.enums.ImportType;
 
 
-public class MinecraftModdingEnvironment {
+class MinecraftModdingEnvironment {
 
     private static final String environmentPath = System.getProperty("user.home") + "/Desktop/Minecraft";
     private static final String eclipseExePath = environmentPath + "/eclipse";
@@ -36,7 +36,6 @@ public class MinecraftModdingEnvironment {
     }
 
     public String performImport(CurriculumType curriculumType, ImportType importType, String selectedLessonName) {
-        System.out.println("ENVIRONENT IMPORT CLICKED");
         PresetRepository.PathTuple paths =
                 PresetRepository.get(curriculumType, importType, environmentPath)
                         .getLessonPaths(selectedLessonName);
@@ -44,48 +43,49 @@ public class MinecraftModdingEnvironment {
         return studentRepository.importWithPaths(paths.getJavaLessonPath(), paths.getMinecraftPath());
     }
 
-    public void addTexturesToSrc(){
+    public void addTexturesToSrc() {
         this.studentRepository.addTexturesToSrc();
     }
 
     public void gradleSetup() {
-            CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
+        CommandExecutor.gradleSetup(studentRepository.getStudentFolderPath());
     }
 
     public void openEclipse() {
-            CommandExecutor.openEclipse(studentRepository.getEclipseProjectPath(), eclipseExePath);
+        CommandExecutor.openEclipse(studentRepository.getEclipseProjectPath(), eclipseExePath);
 
     }
 
 }
 
 
-/**
- * FOLDER LAYOUT IS NOT DYNAMIC; MUST CONFORM;
- * <p>
- * [/Desktop/Minecraft]
- * ├── Minecraft Code
- * │   └── /FIRE
- * │   │   └── /Pre Lesson Repo
- * │   │       └── /Lesson 01
- * │   │           └── /JavaLessons
- * │   │           └── /Minecraft
- * │   │       ...
- * │   │   └── /Post Lesson Repo
- * │   │       └── /Lesson 01
- * │   │       ...
- * │   └── /ICE
- * │       └── /Pre Lesson Repo
- * │           ...
- * │       └── /Post Lesson Repo
- * │           ...
- * ├── Students
- * │   └── /Travie
- * │       └── /src
- * │       └── /textures {the student's custom textures}
- * │       └── /eclipse
- * │           └── /JavaLessons
- * ├── eclipse
- * │   └── /eclipse.exe
- * └── README.md
- **/
+/*
+  FOLDER LAYOUT IS NOT DYNAMIC; MUST CONFORM;
+  <p>
+  // * [/Desktop/Minecraft]
+  // * ├── Minecraft Code
+  // * │   └── /FIRE
+  // * │   │   └── /Pre Lesson Repo
+  // * │   │       └── /Lesson 01
+  // * │   │           └── /JavaLessons
+  // * │   │           └── /Minecraft
+  // * │   │       ...
+  // * │   │   └── /Post Lesson Repo
+  // * │   │       └── /Lesson 01
+  // * │   │       ...
+  // * │   └── /ICE
+  // * │       └── /Pre Lesson Repo
+  // * │           ...
+  // * │       └── /Post Lesson Repo
+  // * │           ...
+  // * ├── Students
+  // * │   └── /Travie
+  // * │       └── /src
+  // * │       └── /Textures {the student's custom textures}
+  // * │       └── /eclipse
+  // * │           └── /JavaLessons
+  // * ├── eclipse
+  // * │   └── /eclipse.exe
+  // * └── README.md
+  <p/>
+ */

@@ -12,11 +12,6 @@ public class StudentRepository {
     private final String javaLessonPath;
     private final String studentTexturePath;
     private final String javaLessonSrcPath;
-
-    public String getEclipseProjectPath() {
-        return eclipseProjectPath;
-    }
-
     private final String eclipseProjectPath;
 
     public StudentRepository(String studentFolderPath) {
@@ -28,18 +23,22 @@ public class StudentRepository {
         this.studentTexturePath = studentFolderPath + "Textures";
     }
 
+    public String getEclipseProjectPath() {
+        return eclipseProjectPath;
+    }
+
     //For some untraceable reason, the current file handling library does not allow us to delete the "SRC" folders in
     // the Eclipse projects.
-    private void deleteCurrentMDK(){
+    private void deleteCurrentMDK() {
         AssistantUtil.deleteFolder(this.minecraftSrcPath);
     }
 
-    private void deleteCurrentJL(){
+    private void deleteCurrentJL() {
         AssistantUtil.deleteFolder(this.javaLessonSrcPath);
     }
 
     public String importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {
-        String importedTo = "";
+        String importedTo;
         //start with saving textures
         saveTexturesFromSrc();
 

@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 
-public class AssistantLogger {
+class AssistantLogger {
 
     private static final String log_file_name = "latest_stack_trace_error.txt";
 
@@ -15,8 +15,8 @@ public class AssistantLogger {
         try {
             File log = new File(log_file_name);
             pw = new PrintWriter(new FileOutputStream(log, true));
-            pw.append(s + "\n\n\n");
-        } catch (FileNotFoundException fnfe) {
+            pw.append(s).append("\n\n\n");
+        } catch (@SuppressWarnings("SpellCheckingInspection") FileNotFoundException fnfe) {
             onSaveFailed(fnfe);
         }
         pw.close();
@@ -26,14 +26,14 @@ public class AssistantLogger {
         try {
             File log = new File("latest_stack_trace_error.txt");
             pw = new PrintWriter(new FileOutputStream(log, true));
-            pw.append(e.toString() + "\n\n\n");
+            pw.append(e.toString()).append("\n\n\n");
         } catch (FileNotFoundException fnfe) {
             onSaveFailed(fnfe);
         }
         pw.close();
     }
 
-    private static void onSaveFailed(Exception e){
+    private static void onSaveFailed(Exception e) {
         System.out.println("<<<UNABLE TO SAVE ERROR STACKTRACE>>>");
         e.printStackTrace();
     }

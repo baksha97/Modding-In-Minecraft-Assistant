@@ -9,18 +9,17 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+@SuppressWarnings("SpellCheckingInspection")
 public class ModdingAssistant extends JFrame {
 
+    private static final String title = "Modding in Minecraft: Assistant";
     private final JComboBox<String> cbStudent;
     private final JComboBox<String> cbCourse;
     private final JComboBox<String> cbImportType;
     private final JComboBox<String> cbLessonPlan;
     private final JButton btnImport;
     private final JTextPane txtOutput;
-    private final JPanel contentPane;
     private MinecraftModdingEnvironment environment;
-
-    public static final String title = "Modding in Minecraft: Assistant";
 
     private ModdingAssistant() {
         super(title);
@@ -35,9 +34,7 @@ public class ModdingAssistant extends JFrame {
         menuBar.add(menu);
 
         JMenuItem mntmAddTexturesToSrc = new JMenuItem("Import/Overwrite Textures");
-        mntmAddTexturesToSrc.addActionListener(e -> {
-            this.environment.addTexturesToSrc();
-        });
+        mntmAddTexturesToSrc.addActionListener(e -> this.environment.addTexturesToSrc());
         menu.add(mntmAddTexturesToSrc);
 
         JMenuItem mntmRunGradleSetup = new JMenuItem("Run Gradle Setup");
@@ -48,11 +45,9 @@ public class ModdingAssistant extends JFrame {
         menu.add(mntmRunGradleSetup);
 
         JMenuItem mntmAbout = new JMenuItem("About ");
-        mntmAbout.addActionListener(e -> {
-            AssistantUtil.presentAboutDialog();
-        });
+        mntmAbout.addActionListener(e -> AssistantUtil.presentAboutDialog());
         menu.add(mntmAbout);
-        contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
 
@@ -71,8 +66,7 @@ public class ModdingAssistant extends JFrame {
         cbImportType.addItemListener(e -> onEnvironmentChange());
 
         cbLessonPlan = new JComboBox<>();
-        cbLessonPlan.addItemListener(e -> {
-        });
+
 
         JLabel lblCurriculum = new JLabel("Course");
         lblCurriculum.setFont(new Font("Consolas", Font.BOLD, 13));
@@ -172,11 +166,11 @@ public class ModdingAssistant extends JFrame {
         initializeCheck();
     }
 
-    private void initializeCheck(){
-        if(cbStudent.getItemCount() == 0){
+    private void initializeCheck() {
+        if (cbStudent.getItemCount() == 0) {
             txtOutput.setText("No student projects found!...");
             btnImport.setEnabled(false);
-        }else{
+        } else {
             txtOutput.setText("Verify user on the top drop down menu.");
             btnImport.setEnabled(true);
         }
@@ -197,18 +191,19 @@ public class ModdingAssistant extends JFrame {
         println(result);
     }
 
-    private void openEclipse(){
+    private void openEclipse() {
         println("Opening " + cbStudent.getSelectedItem() + "'s eclipse...");
         this.environment.openEclipse();
     }
 
-    private void println(String s){
+    private void println(String s) {
         txtOutput.setText(txtOutput.getText() + "\n" + s);
     }
 
-    private String currentRepoTitle(){
+    @SuppressWarnings("ConstantConditions")
+    private String currentRepoTitle() {
         String lesson = (String) cbLessonPlan.getSelectedItem();
-        return "[" + AssistantUtil.toTitleCase((String) cbImportType.getSelectedItem()) + " Repository - " + lesson +"]";
+        return "[" + AssistantUtil.toTitleCase((String) cbImportType.getSelectedItem()) + " Repository - " + lesson + "]";
     }
 
     private Directory currentStudentDirectory() {

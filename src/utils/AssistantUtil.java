@@ -28,14 +28,12 @@ public class AssistantUtil {
     }
 
     public static void showSystemOut() {
-        // String text = "one two three four five six seven eight nine ten ";
         JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
         textArea.setColumns(30);
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
         PrintStream printStream = new PrintStream(new TextAreaOutputStream(textArea));
-        PrintStream standardOut = System.out;
 
         // re-assigns standard output stream and error output stream
         System.setOut(printStream);
@@ -44,12 +42,13 @@ public class AssistantUtil {
         JOptionPane.showMessageDialog(null, scrollPane, "System.out", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public static void presentAboutDialog(){
+    public static void presentAboutDialog() {
         JOptionPane.showMessageDialog(null,
                 "Developed by Travis \n" +
                         "@ https://github.com/baksha97/");
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void deleteFolder(File folder) {
         File[] files = folder.listFiles();
         if (files != null) { //some JVMs return null for empty dirs
@@ -64,6 +63,7 @@ public class AssistantUtil {
         folder.delete();
     }
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public static void deleteFolder(String path) {
         File folder = new File(path);
         File[] files = folder.listFiles();
