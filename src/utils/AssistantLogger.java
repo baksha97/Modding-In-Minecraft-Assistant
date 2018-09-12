@@ -1,4 +1,4 @@
-package utils.output;
+package utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,16 +7,17 @@ import java.io.PrintWriter;
 
 public class AssistantLogger {
 
+    private static final String log_file_name = "latest_stack_trace_error.txt";
+
     private static PrintWriter pw;
 
     public static void log(String s) {
         try {
-            File log = new File("latest_stack_trace_error.txt");
+            File log = new File(log_file_name);
             pw = new PrintWriter(new FileOutputStream(log, true));
             pw.append(s + "\n\n\n");
         } catch (FileNotFoundException fnfe) {
-            System.out.println("<<<Unable to add to log>>");
-            fnfe.printStackTrace();
+            onSaveFailed(fnfe);
         }
         pw.close();
     }
@@ -27,9 +28,13 @@ public class AssistantLogger {
             pw = new PrintWriter(new FileOutputStream(log, true));
             pw.append(e.toString() + "\n\n\n");
         } catch (FileNotFoundException fnfe) {
-            System.out.println("<<<UNABLE TO SAVE ERROR STACKTRACE>>>");
-            fnfe.printStackTrace();
+            onSaveFailed(fnfe);
         }
         pw.close();
+    }
+
+    private static void onSaveFailed(Exception e){
+        System.out.println("<<<UNABLE TO SAVE ERROR STACKTRACE>>>");
+        e.printStackTrace();
     }
 }

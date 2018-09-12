@@ -9,7 +9,7 @@ import utils.enums.ImportType;
 public class MinecraftModdingEnvironment {
 
     private static final String environmentPath = System.getProperty("user.home") + "/Desktop/Minecraft";
-    private static final String eclipsePath = environmentPath + "/eclipse";
+    private static final String eclipseExePath = environmentPath + "/eclipse";
     private final StudentRepository studentRepository;
 
     public MinecraftModdingEnvironment(Directory studentDir) {
@@ -36,10 +36,16 @@ public class MinecraftModdingEnvironment {
     }
 
     public String performImport(CurriculumType curriculumType, ImportType importType, String selectedLessonName) {
+        System.out.println("ENVIRONENT IMPORT CLICKED");
         PresetRepository.PathTuple paths =
                 PresetRepository.get(curriculumType, importType, environmentPath)
                         .getLessonPaths(selectedLessonName);
+        System.out.println(paths);
         return studentRepository.importWithPaths(paths.getJavaLessonPath(), paths.getMinecraftPath());
+    }
+
+    public void addTexturesToSrc(){
+        this.studentRepository.addTexturesToSrc();
     }
 
     public void gradleSetup() {
@@ -47,7 +53,7 @@ public class MinecraftModdingEnvironment {
     }
 
     public void openEclipse() {
-            CommandExecutor.openEclipse(studentRepository.getStudentFolderPath(), eclipsePath);
+            CommandExecutor.openEclipse(studentRepository.getEclipseProjectPath(), eclipseExePath);
 
     }
 

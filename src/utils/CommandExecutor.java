@@ -1,6 +1,5 @@
 package utils;
 
-import utils.output.AssistantLogger;
 import utils.output.StreamGobbler;
 
 import java.io.File;
@@ -9,7 +8,7 @@ import java.util.concurrent.Executors;
 
 public class CommandExecutor {
 
-    public static void openEclipse(String projectPath, String eclipsePath) {
+    public static void openEclipse(String projectPath, String eclipseExePath) {
         new Thread(() -> {
             try {
                 int completed;
@@ -17,7 +16,7 @@ public class CommandExecutor {
                 System.out.println(operatingSystem + "Opening eclipse...");
 
                 if (operatingSystem.contains("Windows")) {
-                    completed = execute(eclipsePath, "eclipse -data " + projectPath); //TODO: CHECK
+                    completed = execute(eclipseExePath, "eclipse -data " + projectPath); //TODO: CHECK
                     assert completed == 0;
                 } else if (operatingSystem.contains("Mac")) {
                     completed = execute("/Applications/eclipse.app/Contents/MacOS", "eclipse -data " + projectPath);

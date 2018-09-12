@@ -2,9 +2,7 @@ package repos;
 
 import javaxt.io.Directory;
 import javaxt.io.File;
-import utils.Utility;
-
-import javax.rmi.CORBA.Util;
+import utils.AssistantUtil;
 
 public class StudentRepository {
 
@@ -33,11 +31,11 @@ public class StudentRepository {
     //For some untraceable reason, the current file handling library does not allow us to delete the "SRC" folders in
     // the Eclipse projects.
     private void deleteCurrentMDK(){
-        Utility.deleteFolder(this.minecraftSrcPath);
+        AssistantUtil.deleteFolder(this.minecraftSrcPath);
     }
 
     private void deleteCurrentJL(){
-        Utility.deleteFolder(this.javaLessonSrcPath);
+        AssistantUtil.deleteFolder(this.javaLessonSrcPath);
     }
 
     public String importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {

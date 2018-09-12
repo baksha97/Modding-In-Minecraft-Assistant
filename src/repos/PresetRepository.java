@@ -22,8 +22,8 @@ public class PresetRepository {
     }
 
     public PathTuple getLessonPaths(String selectedLessonName) {
-        String java = selectedRepoPath + selectedLessonName + "/JavaLessons";
-        String minecraft = selectedRepoPath + selectedLessonName + "/Minecraft";
+        String java = selectedRepoPath + "/" + selectedLessonName + "/JavaLessons";
+        String minecraft = selectedRepoPath + "/" + selectedLessonName + "/Minecraft";
         return new PathTuple(java, minecraft);
     }
 
@@ -86,7 +86,7 @@ public class PresetRepository {
 
         @Override
         public String toString() {
-            return "[" + "Java: " + javaLessonPath + " ||| " + "Minecraft: " + minecraftPath + "]";
+            return "[" + "Java: " + javaLessonPath + " |\n| " + "Minecraft: " + minecraftPath + "]";
         }
     }
 }
