@@ -2,6 +2,9 @@ package repos;
 
 import javaxt.io.Directory;
 import javaxt.io.File;
+import utils.Utility;
+
+import javax.rmi.CORBA.Util;
 
 public class StudentRepository {
 
@@ -10,12 +13,31 @@ public class StudentRepository {
     private final String minecraftSrcPath;
     private final String javaLessonPath;
     private final String studentTexturePath;
+    private final String javaLessonSrcPath;
+
+    public String getEclipseProjectPath() {
+        return eclipseProjectPath;
+    }
+
+    private final String eclipseProjectPath;
 
     public StudentRepository(String studentFolderPath) {
         this.studentFolderPath = studentFolderPath; // contains a "/" at the end
         this.minecraftSrcPath = studentFolderPath + "src";
+        this.eclipseProjectPath = studentFolderPath + "eclipse";
         this.javaLessonPath = studentFolderPath + "eclipse/JavaLessons";
+        this.javaLessonSrcPath = studentFolderPath + "eclipse/JavaLessons/src";
         this.studentTexturePath = studentFolderPath + "Textures";
+    }
+
+    //For some untraceable reason, the current file handling library does not allow us to delete the "SRC" folders in
+    // the Eclipse projects.
+    private void deleteCurrentMDK(){
+        Utility.deleteFolder(this.minecraftSrcPath);
+    }
+
+    private void deleteCurrentJL(){
+        Utility.deleteFolder(this.javaLessonSrcPath);
     }
 
     public String importWithPaths(String javaPathUpdate, String minecraftPathUpdate) {
@@ -26,15 +48,15 @@ public class StudentRepository {
         //java lesson import
         Directory inputJL = new Directory(javaPathUpdate);
         Directory outputJL = new Directory(javaLessonPath);
-        outputJL.delete(); //TODO: see if it still works like this, if not delete
+        deleteCurrentJL();
         inputJL.copyTo(outputJL, true);
         importedTo = "[SR]: JavaLessons ->" + outputJL.getPath();
 
         //MDK lesson import
         Directory inputMDK = new Directory(minecraftPathUpdate);
-        //TODO: See if I should leave it as is, and change the repo dir to contain the src FILES instead of the src FOLDER...
-        Directory outputMDK = new Directory(minecraftSrcPath);
-        outputMDK.delete(); //TODO: see if it still works like this, if not delete
+        //The post repo contains the SRC folder, so we will set the outputMDK to the parent folder.
+        Directory outputMDK = new Directory(this.studentFolderPath);
+        deleteCurrentMDK();
         inputMDK.copyTo(outputMDK, true);
         importedTo = importedTo + "\n" + "[SR]: MDK/src -> " + outputMDK.getPath();
 
@@ -52,11 +74,13 @@ public class StudentRepository {
 
         javaxt.io.File[] currentTextures = srcDic.getFiles("*.png", true);
         for (File currentTexture : currentTextures) {
-            currentTexture.copyTo(texturesDic, false); //false, not overwriting any textures! --> must delete default textures in this folder to make sure that the newer textures are copied over!
+            //false overwrite, not overwriting any textures! -->
+            // must delete default textures in this folder to make sure that the newer textures are copied over!
+            currentTexture.copyTo(texturesDic, false);
         }
     }
 
-    private void addTexturesToSrc() {
+    public void addTexturesToSrc() {
         //makes sure that the addition of new textures are the latest
         saveTexturesFromSrc();
 
