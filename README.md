@@ -8,7 +8,7 @@ This executable file has then been used and installed on all of the company's co
 
 	Import custom files from folders containing student modifications into the Java project modding main (Forge Minecraft) for two different modding curricula.
 
-	Added the functionality and support to include multiple students, importations, and curricula from to the style of development.
+	Added the functionality and support to include multiple students, importations, and curricula via the style of development.
 
 	Added support to run necessary command line functions to facilitate workspace setup and troubleshooting.
 
