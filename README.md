@@ -15,4 +15,6 @@ This executable file has then been used and installed on all of the company's co
 	Handle student’s work during the modification of their Java code in accordance to lesson plan post-lesson repositories. 
 
 # Screens
-GUI:The current GUI images are outdated and will be uploaded shortly.
+GUI:
+![](https://github.com/baksha97/Modding-In-Minecraft-Assistant/blob/master/assistant_screens/interface.png)
+![](https://github.com/baksha97/Modding-In-Minecraft-Assistant/blob/master/assistant_screens/menu.png)
