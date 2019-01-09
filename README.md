@@ -41,6 +41,35 @@ o	This may even be useful for the "slow" classes that may be able to do the same
 •	The loader continues to be universal in terms of lesson plans and their imports. Any changes to the lesson plans will not affect the loader as long as the appropriate repositories have been updated. 
 
 # Folder Conformity 
+
+``` * [/Desktop/Minecraft]
+   * ├── Minecraft Code
+   * │   └── /FIRE
+   * │   │   └── /Pre Lesson Repo
+   * │   │       └── /Lesson 01
+   * │   │           └── /JavaLessons
+   * │   │           └── /Minecraft
+   * │   │       ...
+   * │   │   └── /Post Lesson Repo
+   * │   │       └── /Lesson 01
+   * │   │       ...
+   * │   └── /ICE
+   * │       └── /Pre Lesson Repo
+   * │           ...
+   * │       └── /Post Lesson Repo
+   * │           ...
+   * ├── Students
+   * │   └── /Travie
+   * │       └── /src
+   * │       └── /Textures {the student's custom textures}
+   * │       └── /eclipse
+   * │           └── /JavaLessons
+   * ├── eclipse
+   * │   └── /eclipse.exe
+   * └── README.md 
+   ```
+
+ 
 ![](https://github.com/baksha97/Modding-In-Minecraft-Assistant/blob/master/assistant_screens/layout.png)
 
 # Screens

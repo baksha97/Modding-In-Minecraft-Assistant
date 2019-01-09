@@ -62,30 +62,30 @@ class MinecraftModdingEnvironment {
 /**
   FOLDER LAYOUT IS NOT DYNAMIC; MUST CONFORM;
   <p>
-  // * [/Desktop/Minecraft]
-  // * ├── Minecraft Code
-  // * │   └── /FIRE
-  // * │   │   └── /Pre Lesson Repo
-  // * │   │       └── /Lesson 01
-  // * │   │           └── /JavaLessons
-  // * │   │           └── /Minecraft
-  // * │   │       ...
-  // * │   │   └── /Post Lesson Repo
-  // * │   │       └── /Lesson 01
-  // * │   │       ...
-  // * │   └── /ICE
-  // * │       └── /Pre Lesson Repo
-  // * │           ...
-  // * │       └── /Post Lesson Repo
-  // * │           ...
-  // * ├── Students
-  // * │   └── /Travie
-  // * │       └── /src
-  // * │       └── /Textures {the student's custom textures}
-  // * │       └── /eclipse
-  // * │           └── /JavaLessons
-  // * ├── eclipse
-  // * │   └── /eclipse.exe
-  // * └── README.md
+   * [/Desktop/Minecraft]
+   * ├── Minecraft Code
+   * │   └── /FIRE
+   * │   │   └── /Pre Lesson Repo
+   * │   │       └── /Lesson 01
+   * │   │           └── /JavaLessons
+   * │   │           └── /Minecraft
+   * │   │       ...
+   * │   │   └── /Post Lesson Repo
+   * │   │       └── /Lesson 01
+   * │   │       ...
+   * │   └── /ICE
+   * │       └── /Pre Lesson Repo
+   * │           ...
+   * │       └── /Post Lesson Repo
+   * │           ...
+   * ├── Students
+   * │   └── /Travie
+   * │       └── /src
+   * │       └── /Textures {the student's custom textures}
+   * │       └── /eclipse
+   * │           └── /JavaLessons
+   * ├── eclipse
+   * │   └── /eclipse.exe
+   * └── README.md
   <p/>
  **/
