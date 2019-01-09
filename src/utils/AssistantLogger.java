@@ -7,13 +7,14 @@ import java.io.PrintWriter;
 
 class AssistantLogger {
 
-    private static final String log_file_name = "latest_stack_trace_error.txt";
+    private static final String log_file = System.getProperty("user.home") +
+            "/Desktop/Minecraft/" + "latest_stack_trace_error.txt";
 
     private static PrintWriter pw;
 
     public static void log(String s) {
         try {
-            File log = new File(log_file_name);
+            File log = new File(log_file);
             pw = new PrintWriter(new FileOutputStream(log, true));
             pw.append(s).append("\n\n\n");
         } catch (@SuppressWarnings("SpellCheckingInspection") FileNotFoundException fnfe) {
@@ -24,7 +25,7 @@ class AssistantLogger {
 
     public static void saveStackTrace(Exception e) {
         try {
-            File log = new File("latest_stack_trace_error.txt");
+            File log = new File(log_file);
             pw = new PrintWriter(new FileOutputStream(log, true));
             pw.append(e.toString()).append("\n\n\n");
         } catch (FileNotFoundException fnfe) {

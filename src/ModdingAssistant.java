@@ -178,10 +178,14 @@ public class ModdingAssistant extends JFrame {
 
     private void onEnvironmentChange() {
         //Check for changes to student folders
-        this.environment = new MinecraftModdingEnvironment(currentStudentDirectory());
-        cbLessonPlan.setModel(new DefaultComboBoxModel<>(
-                this.environment.getAvailableLessons(currentCurriculumType(), currentImportType())
-        ));
+        if (MinecraftModdingEnvironment.getAvailableStudentsDirs().length != 0) {
+            this.environment = new MinecraftModdingEnvironment(currentStudentDirectory());
+            cbLessonPlan.setModel(new DefaultComboBoxModel<>(
+                    this.environment.getAvailableLessons(currentCurriculumType(), currentImportType())
+            ));
+        } else {
+            JOptionPane.showMessageDialog(null, "Refer to the README for the correct implementation.", "Folder Hierarchy Error", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     private void performImport() {

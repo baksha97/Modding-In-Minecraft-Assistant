@@ -59,7 +59,7 @@ class MinecraftModdingEnvironment {
 }
 
 
-/*
+/**
   FOLDER LAYOUT IS NOT DYNAMIC; MUST CONFORM;
   <p>
   // * [/Desktop/Minecraft]
@@ -88,4 +88,4 @@ class MinecraftModdingEnvironment {
   // * │   └── /eclipse.exe
   // * └── README.md
   <p/>
- */
+ **/
